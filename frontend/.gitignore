@@ -1,0 +1,3 @@
+# git ignore basically ignores files when pushing/commiting to github
+
+node_modules
