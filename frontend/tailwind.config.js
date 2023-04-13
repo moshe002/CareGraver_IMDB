@@ -1,4 +1,11 @@
 module.exports = {   
     content: ['./src/**/*.{html,js}'],   
-    theme: {}, 
+    theme: {
+        extend: {
+            fontFamily: {
+                'montserrat': ['"Montserrat"',  ...defaultTheme.fontFamily.sans],
+                'poppins': ['"Poppins"', ...defaultTheme.fontFamily.sans],
+            }
+        }
+    }, 
 };
