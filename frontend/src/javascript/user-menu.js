@@ -6,4 +6,5 @@ function onOpen() {
     else 
         user_menu.style.display = 'flex';
     console.log('it works');
-};
+}
+

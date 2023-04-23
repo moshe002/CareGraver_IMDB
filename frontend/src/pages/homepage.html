@@ -53,22 +53,50 @@
                     <a href="#contact">Contact</a>
                 </div>
             </div>
+            
+            
             <!-- two icons div? -->
             <div class="flex gap-10 items-center justify-center mr-24">
                 <div class="relative">
-                    <button type="button" onclick="onOpen()"> 
+                    <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="text-white hover:bg-slate-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" onclick="onOpen()"> 
+                        <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         <img class="w-5 h-5" src="../assets/icons/user icon.png" alt="user_icon">
                     </button>
-                    <div id="user-menu" class="hidden flex-col absolute bg-white rounded-md p-5 w-max z-10">
+                    <!--<div id="user-menu" class="hidden flex-col absolute bg-white rounded-md p-5 w-max z-10">
                         <h1 class="font-bold text-2xl">Jolli Bee</h1>
                         <a class="text-lg" href="">Manage Account</a>
                         <a class="text-lg" href="">Orders</a>
                         <a class="text-lg" href="">Chats</a>
                         <br>
                         <br>
-                        <a class="text-lg" href="">Switch Account</a>
+                        <a class="text-lg" href="">Switch Account</a>   
                         <a class="text-lg font-semibold hover:text-red-500" href="login.html">Log Out Account</a>
+                    </div>  -->  
+                <div id="user-menu" class="z-10 hidden flex-col absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-50 dark:bg-gray-700">
+                         <!-- Dropdown menu -->
+                <div class="px-4 py-3 text-gray-900 dark:text-white">
+                    <div class="text-lg">Jolli Bee</div>
+                    <div class="font-medium truncate text-sm ">jollibee@bidaangsaya.com</div>
+                </div>
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Manage Account</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Orders</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Chats</a>
+                    </li>                  
+                    </ul>
+                    <div class="py-2">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
                     </div>
+                </div>
+              
                 </div>
                 <a href="">
                     <img class="w-5 h-5" src="../assets/icons/search icon.png" alt="search_icon">
@@ -533,6 +561,7 @@
         <img class="h-3 w-3" src="../assets/icons/copyright.png" alt="copyright">
         <h1 class="text-center font-semibold text-gray-400">All Rights Reserved 2023</h1>
     </div>  
+    
     <!-- end of footer -->  
     <script src="../javascript/slider-review.js"></script>
     <script src="../javascript/user-menu.js"></script>
