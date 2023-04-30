@@ -5,36 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="src/css/chatbox.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>Home</title>
 </head>
 <body class="scroll-smooth font-montserrat">
     <div id="home" class="relative bg-[url('./src/assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center">
         <!-- navbar -->
-        <div class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-10">
+        <div id="navbar" class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-10">
             <div class="flex justify-start ml-24 items-center gap-36">
                 <h1 class="font-bold text-2xl">CareGraver</h1>
-                <div class="flex gap-10 font-semibold">
-                    <a href="#home">Home</a>
-                    <a href="#service">Services</a>
-                    <a href="#explorer">Explorer</a>
-                    <a href="#contact">Contact</a>
+                <div class="flex gap-10 font-semibold" id="topnav">
+                    <a class="duration-150" href="#home">Home</a>
+                    <a class="duration-150" href="#service">Services</a>
+                    <a class="duration-150" href="#explorer">Explorer</a>
+                    <a class="duration-150" href="#contact">Contact</a>
                 </div>
             </div>
             <!-- login and sign up div? -->
             <div class="flex gap-10 items-center justify-center mr-24">
-                <a class="font-semibold hover:cursor-pointer" href="src/pages/login.html" type="button">Login</a>
-                <a  class="flex justify-center items-center gap-3 bg-blue-500 py-3 px-5 rounded-md hover:cursor-pointer"
+                <div id="topnav">
+                    <a class="font-semibold hover:cursor-pointer" href="src/pages/login.html" type="button">Login</a>
+                </div>
+                <a class="flex justify-center items-center gap-3 bg-blue-600 hover:bg-blue-500 duration-150 py-3 px-5 rounded-md hover:cursor-pointer"
                     href="src/pages/signup.html" >
                     <p class="font-semibold text-white" type="button">Sign up</p>
                     <img class="w-4 h-4" src="./src/assets/icons/next.png" alt="left_arrow">
                 </a>
             </div>
         </div>
+        <!-- end of navbar -->
         <!-- content div -->
-        <div class="h-screen p-28 bg-gradient-to-r from-white to-transparent">
+        <div class="h-screen mt-5 p-28 bg-gradient-to-r from-white to-transparent">
             <h1 class="text-5xl font-bold leading-snug">Love<br>Transcends<br>Death</h1>
             <br>
             <p class="text-xl">
@@ -44,7 +49,7 @@
             </p>
             <br>
             <a 
-                class="bg-blue-500 p-5 rounded-md text-white font-semibold"
+                class="bg-blue-500 p-5 rounded-md text-white font-semibold hover:bg-cyan-300 duration-150"
                 type="button" 
                 href="#service" >
                 Start your care
@@ -64,7 +69,7 @@
                     <div class="flex flex-col justify-start gap-5 p-10">
                         <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Cemetery Maintenance</h1>
                         <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
-                        <button type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md">Know More</button>
+                        <button type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
                     </div>
                 </div>
                 <div class="flex flex-row shadow-lg">
@@ -72,7 +77,7 @@
                     <div class="flex flex-col justify-start gap-5 p-10">
                         <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Grave Openings</h1>
                         <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
-                        <button type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md">Know More</button>
+                        <button type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
                     </div>
                 </div>
             </div>
@@ -403,7 +408,7 @@
             <br>
             <!-- slider -->
             <div class="flex justify-center items-end">
-                <button class="bg-blue-500 text-white font-semibold p-5 rounded-md" type="button">Explore Map</button>
+                <button class="bg-blue-500 text-white font-semibold p-5 rounded-md hover:bg-cyan-300 duration-150" type="button">Explore Map</button>
             </div>
         </div>
     </div>
@@ -442,7 +447,7 @@
                         <input class="border-b-2 pr-3 pt-3 outline-none" type="text" id="emailOrPhoneNumber" required>
                         <label class="font-semibold" for="help">What can we help you with?</label>
                         <input class="border-b-2 pr-3 pt-3 outline-none" id="help" />
-                        <input type="submit" class="absolute top-64 right-1 bg-blue-500 text-white px-5 py-3 rounded-md w-1/4 mt-3 hover:cursor-pointer">
+                        <input type="submit" class="absolute top-64 right-1 bg-blue-500 text-white px-5 py-3 rounded-md w-1/4 mt-3 hover:bg-cyan-300 duration-150 hover:cursor-pointer">
                     </form>
                 </div>
             </div>
@@ -495,5 +500,6 @@
     </div>
     <!-- end of footer -->
     <script src="src/javascript/slider-review.js"></script>
+    <script src="src/javascript/navbar.js"></script>
 </body>
 </html>

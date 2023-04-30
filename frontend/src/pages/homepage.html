@@ -43,7 +43,7 @@
 	<!-- end of chatbox -->
     <div id="home" class=" wrapper bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center">
         <!-- navbar -->
-        <div class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-10">
+        <div id="navbar" class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-10">
             <div class="flex justify-start ml-24 items-center gap-36">
                 <h1 class="font-bold text-2xl">CareGraver</h1>
                 <div class="flex gap-10 font-semibold" id="topnav">
@@ -56,7 +56,11 @@
             <!-- two icons div? -->
             <div class="flex gap-10 items-center justify-center mr-24">
                 <div class="relative">
-                    <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="text-white hover:bg-slate-50 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:hover:bg-white dark:focus:ring-white duration-150" type="button" onclick="onOpen()"> 
+                    <button id="dropdownInformationButton" 
+                        data-dropdown-toggle="dropdownInformation" 
+                        class="text-white hover:bg-slate-50 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:hover:bg-white dark:focus:ring-white duration-150" 
+                        type="button" 
+                        onclick="onOpen()"> 
                         <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         <img class="w-5 h-5" src="../assets/icons/user icon.png" alt="user_icon">
                     </button>
@@ -100,9 +104,10 @@
                 </a>
             </div>
         </div>
+        <!-- end of navbar -->
         <!-- content div -->
         <div class="h-screen p-28 bg-gradient-to-r from-white to-transparent">
-            <h1 class="text-5xl font-bold leading-snug">Love<br>Transcends<br>Death</h1>
+            <h1 class="text-5xl mt-5 font-bold leading-snug">Love<br>Transcends<br>Death</h1>
             <br>
             <p class="text-xl">
                 At CareGraver, we recognize that love is eternal and that memories <br>
@@ -151,7 +156,7 @@
             <h1 class="font-bold text-5xl">Lorem ipsum dolor, sit amet.</h1>
             <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Facilis iste dicta assumenda natus nostrum minima minus</p>
             <!-- slider -->
-            <div class="flex flex-row justify-between items-center p-5 mt-5">
+            <div id="slider" class="flex flex-row justify-between items-center p-5 mt-5">
                 <!-- left button -->
                 <button disabled onclick="sliderHomePrev()" id="left-btn" class="w-20 h-20 mr-10 opacity-30">
                     <img src="../assets/icons/left-arrow.png" alt="left_arrow">
@@ -159,7 +164,7 @@
                 <!-- slider content -->
                 <div id="slider-content">
                     <!-- first group -->
-                    <div id="first-group" class="flex flex-row gap-10 justify-center items-center">
+                    <div id="first-group" class="flex flex-row gap-10 justify-center items-center ease-in-out duration-150">
                         <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
                             <div class="flex flex-row gap-1 justify-center items-center">
                                 <img src="../assets/icons/full_star.png" alt="star">
@@ -216,7 +221,7 @@
                         </div>
                     </div>
                     <!-- second group -->
-                    <div id="second-group" class="hidden flex-row gap-10 justify-center items-center">
+                    <div id="second-group" class="hidden flex-row gap-10 justify-center items-center ease-in-out duration-150">
                         <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
                             <div class="flex flex-row gap-1 justify-center items-center">
                                 <img src="../assets/icons/full_star.png" alt="star">
@@ -273,7 +278,7 @@
                         </div>
                     </div>
                     <!-- third group -->
-                    <div id="third-group" class="hidden flex-row gap-10 justify-center items-center">
+                    <div id="third-group" class="hidden flex-row gap-10 justify-center items-center ease-in-out duration-150">
                         <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
                             <div class="flex flex-row gap-1 justify-center items-center">
                                 <img src="../assets/icons/full_star.png" alt="star">
@@ -468,7 +473,7 @@
             <br>
             <!-- slider -->
             <div class="flex justify-center items-end">
-                <button class="bg-blue-500 text-white font-semibold p-5 rounded-md hover:bg-cyan-300 duration-150" type="button">Explore Map</button>
+                <a href="grave-explorer.html" class="bg-blue-500 text-white font-semibold p-5 rounded-md hover:bg-cyan-300 duration-150" type="button">Explore Map</a>
             </div>
         </div>
     </div>
@@ -561,6 +566,7 @@
     
     <!-- end of footer -->  
     <script src="../javascript/slider-review.js"></script>
+    <script src="../javascript/navbar.js"></script>
     <script src="../javascript/user-menu.js"></script>
 </body>
 </html>
