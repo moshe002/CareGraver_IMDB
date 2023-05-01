@@ -1,3 +1,4 @@
+// resizes map based on window (DONT CHANGE THIS CODE)
 $(document).ready(function() {
     $('map').imageMapResize();
 });
@@ -6,18 +7,68 @@ $(document).ready(function() {
 //# sourceMappingURL=imageMapResizer.map
 
 // opening of modal onclick map area
-const map_area = document.querySelector('area');
-map_area.addEventListener('click', openModal)
+const modal = document.getElementById('modal');
+const map_area = document.getElementsByTagName('area');
 
-function openModal() {
-    let modal = document.getElementById('modal');
+if(map_area.length > 0) {
+    for (let i = 0; i < map_area.length; i++) {
+        map_area[i].addEventListener('click', function(event){
+            openModal(event)
+        });
+    }
+}
+// on open modal also displays the ID of the modal (area)
+function openModal(event) {
     modal.style.display = "flex";
-    console.log('open modal')
+    console.log('modal id:' +  event.target.id)
 };
 
-const modal = document.getElementById('modal');
+// modal close button
 modal.addEventListener('click', closeModal);
-
 function closeModal() {
     modal.style.display = "none";
 }
+
+// // static data display on lot
+// const modal_content = document.getElementById('modal-content');
+
+// const area_5 = document.getElementById('5'); // gets the specific area that i want to add a static data
+// const btn_modal = document.getElementById('btn-modal');
+// const header_modal = document.getElementById('header-modal');
+// const btn_inquire = document.getElementById('btn-inquire');
+
+// let lot_code = null;
+// let name_of_deceased = null;
+// let date_of_death = null;
+// let lease_expire = null;
+// let direction_btn = null;
+
+// area_5.addEventListener('click', function(){ 
+
+//     // lot code
+//     lot_code = document.createElement('h1');
+//     lot_code.innerHTML = "Lot Code: 1234";
+
+//     // name of deceased
+//     name_of_deceased = document.createElement('h1');
+//     name_of_deceased.innerHTML = "Name Of Deceased: Superman";
+
+//     // date of death
+//     date_of_death = document.createElement('h1');
+//     date_of_death.innerHTML = "Date of Death: 1/1/2023";
+
+//     // lease expires in 
+//     lease_expire = document.createElement('h1');
+//     lease_expire.innerHTML = "Lease Expires in: 2/2/2028";
+
+//     // find directions button  
+//     direction_btn = document.createElement('button');
+//     direction_btn.innerHTML = "FIND DIRECTIONS";
+
+//     modal_content.innerHTML = '';
+//     modal_content.appendChild(lot_code);
+//     modal_content.appendChild(name_of_deceased);
+//     modal_content.appendChild(date_of_death);
+//     modal_content.appendChild(lease_expire);
+//     modal_content.appendChild(direction_btn);
+// });
