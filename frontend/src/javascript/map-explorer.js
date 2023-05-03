@@ -15,6 +15,9 @@ if(map_area.length > 0) {
         map_area[i].addEventListener('click', function(event){
             openModal(event)
         });
+        map_area[i].addEventListener('mouseenter', function(){
+            map_area[i].style.cursor = 'pointer';
+        });
     }
 }
 // on open modal also displays the ID of the modal (area)

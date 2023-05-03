@@ -14,11 +14,16 @@
 </head>
 <body>
     <div class="flex flex-col justify-center items-center h-full p-5">
-        <img
-        class="h-3/6 w-3/6"
-        src="../assets/background-images/aerial-map-1.png" 
-        alt="grave_map" 
-        usemap="#gravemap">
+        <div class="flex justify-center max-h-screen w-5xl border-2 overflow-x-scroll">
+            <!-- image of map element also the reference to it -->
+            <img
+            class="h-full w-full"
+            src="../assets/background-images/aerial-map-1.png" 
+            alt="grave_map" 
+            usemap="#gravemap">
+        </div>
+        
+
         <map name="gravemap" class="-z-10">
             <area class="area" id="1" target="" alt="1" title="1" coords="2777,3031,2793,3053,2813,3112,2934,3047,2966,2942,2947,2929,2806,2932,2799,2958,2789,2998" shape="poly">
             <area class="area" id="2" target="" alt="2" title="2" coords="2730,2767,2773,2803,2783,2843,2799,2892,2864,2905,2920,2905,2848,2807,2799,2751" shape="poly">
