@@ -4,7 +4,7 @@ if(!isset($_SESSION["login"]))
 	header("location:login.php"); 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -112,8 +112,8 @@ if(!isset($_SESSION["login"]))
         </div>
         <!-- end of navbar -->
         <!-- content div -->
-        <div class="h-screen p-28 bg-gradient-to-r from-white to-transparent">
-            <h1 class="text-5xl mt-5 font-bold leading-snug">Love<br>Transcends<br>Death</h1>
+        <div class="flex flex-col items-start justify-center h-screen p-28 bg-gradient-to-r from-white to-transparent">
+            <h1 class="text-5xl mt-10 font-bold leading-snug">Love<br>Transcends<br>Death</h1>
             <br>
             <p class="text-xl">
                 At CareGraver, we recognize that love is eternal and that memories <br>
@@ -302,7 +302,7 @@ if(!isset($_SESSION["login"]))
                         <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="emailOrPhoneNumber" required>
                         <label class="font-semibold" for="help">What can we help you with?</label>
                         <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="help" />
-                        <input type="submit" class="absolute top-64 right-1 bg-blue-500 text-white px-5 py-3 rounded-md w-1/4 mt-3 hover:cursor-pointer hover:bg-cyan-300 duration-150">
+                        <input type="submit" class="absolute top-64 xl:top-64 right-1 bg-blue-500 text-white px-5 py-3 rounded-md w-1/4 mt-3 hover:cursor-pointer hover:bg-cyan-300 duration-150">
                     </form>
                 </div>
             </div>
