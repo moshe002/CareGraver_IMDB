@@ -27,40 +27,28 @@
             <br>
             <br>
             <p>If you don't have an account register <br>
-            You can <a class="text-blue-500 hover:cursor-pointer font-bold" href="signup.html">Register here!</a>
+            You can <a class="text-blue-500 hover:cursor-pointer font-bold" href="signup.php">Register here!</a>
             </p>
         </div>
         <!-- form div -->
         <div class="flex flex-col justify-center p-3 gap-7">
             <h1 class="font-semibold text-2xl">Sign in</h1>
-            <form class="flex flex-col gap-5" method="POST" action="/CareGraver_IMDBSYS/frontend/src/pages/loginprocess.php">
+            <form class="flex flex-col relative gap-5" method="POST" action="/CareGraver_IMDB/frontend/src/pages/loginprocess.php">
             <?php  if($curError == "success") echo "Logged out successfully<br>";?>
             <?php  if($curError == "1") echo "We couldn't find an account with that email address or username.<br>";?>
                 <input
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="text" id="loginfo" placeholder="Enter email or username" name="loginfo" required>
-                <div class="relative">
                 <?php  if($curError == "2") echo "The password you entered is incorrect. Please try again.<br>";?>
-                    <input
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80" 
+                <input
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500" 
                     type="password" id="password" placeholder="Password" name="password" required>
                     <a href="" class="absolute text-xs text-gray-400 right-32 sm:right-1 -bottom-6">Forgot Password?</a>
-                </div>
                 <button 
                     class="bg-blue-500 p-3 rounded-md text-white mt-7 w-80"
                     type="submit" name="sub">Login
                 </button>
             </form>
-            <h1 class="text-center text-gray-500">or continue with</h1>
-            <!-- icons div -->
-            <div class="flex flex-row justify-center gap-3">
-                <a href="">
-                    <img src="../assets/icons/fb icon.png" alt="fb_icon">
-                </a>
-                <a href="">
-                    <img src="../assets/icons/google icon.png" alt="google_icon">
-                </a>
-            </div>
         </div>
     </div>
 </body>

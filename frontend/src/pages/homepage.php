@@ -17,6 +17,7 @@ if(!isset($_SESSION["login"]))
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <title>Home</title>
     <link rel="stylesheet" href="../css/chatbox.css">
     <script src="../javascript/chatbox.js"></script>
@@ -46,9 +47,9 @@ if(!isset($_SESSION["login"]))
         </div>	  
     </div>	
 	<!-- end of chatbox -->
-    <div id="home" class=" wrapper bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center">
+    <div id="home" class="relative bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center">
         <!-- navbar -->
-        <div id="navbar" class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-10">
+        <div id="navbar" class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-50">
             <div class="flex justify-start ml-24 items-center gap-36">
                 <h1 class="font-bold text-2xl">CareGraver</h1>
                 <div class="flex gap-10 font-semibold" id="topnav">
@@ -161,193 +162,40 @@ if(!isset($_SESSION["login"]))
             <h1 class="font-bold text-5xl">Lorem ipsum dolor, sit amet.</h1>
             <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Facilis iste dicta assumenda natus nostrum minima minus</p>
             <!-- slider -->
-            <div id="slider" class="flex flex-row justify-between items-center p-5 mt-5">
-                <!-- left button -->
-                <button disabled onclick="sliderHomePrev()" id="left-btn" class="w-20 h-20 mr-10 opacity-30">
-                    <img src="../assets/icons/left-arrow.png" alt="left_arrow">
-                </button>
-                <!-- slider content -->
-                <div id="slider-content">
-                    <!-- first group -->
-                    <div id="first-group" class="flex flex-row gap-10 justify-center items-center ease-in-out duration-150">
-                        <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
-                            <div class="flex flex-row gap-1 justify-center items-center">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/blank_star.png" alt="star">
-                                <img src="../assets/icons/blank_star.png" alt="star">
-                            </div>
-                            <p class="w-1/2 text-sm text-center text-gray-400">
-                                Sed ut perspiciatis unde omnis 
-                                istenatus error sitvoluptatem
-                                laudantium, totam 
-                            </p>
-                            <div class="flex gap-5 justify-center items-center">
-                                <img src="../assets/images/pic-1.png" alt="pic_1">
-                                <h1 class="font-bold text-blue-500 text-lg">Nina Ocampo</h1>
-                            </div>
-                        </div>
-                        <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
-                            <div class="flex flex-row gap-1 justify-center items-center">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                            </div>
-                            <p class="w-1/2 text-sm text-center text-gray-400">
-                                Sed ut perspiciatis unde omnis 
-                                istenatus error sitvoluptatem 
-                                laudantium, totam 
-                            </p>
-                            <div class="flex gap-5 justify-center items-center">
-                                <img src="../assets/images/pic-2.png" alt="pic_1">
-                                <h1 class="font-bold text-blue-500 text-lg">Ana Simson</h1>
-                            </div>
-                        </div>
-                        <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
-                            <div class="flex flex-row gap-1 justify-center items-center">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/blank_star.png" alt="star">
-                            </div>
-                            <p class="w-1/2 text-sm text-center text-gray-400">
-                                Sed ut perspiciatis unde omnis 
-                                istenatus error sitvoluptatem
-                                laudantium, totam 
-                            </p>
-                            <div class="flex gap-5 justify-center items-center">
-                                <img src="../assets/images/pic-3.png" alt="pic_1">
-                                <h1 class="font-bold text-blue-500 text-lg">John Cruz</h1>
-                            </div>
-                        </div>
+            <div id="indicators-carousel" class="relative w-full mt-5" data-carousel="static">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <!-- Item 1 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                        <img src="../assets/images/group-1-review.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
-                    <!-- second group -->
-                    <div id="second-group" class="hidden flex-row gap-10 justify-center items-center ease-in-out duration-150">
-                        <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
-                            <div class="flex flex-row gap-1 justify-center items-center">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/blank_star.png" alt="star">
-                                <img src="../assets/icons/blank_star.png" alt="star">
-                            </div>
-                            <p class="w-1/2 text-sm text-center text-gray-400">
-                                Sed ut perspiciatis unde omnis 
-                                istenatus error sitvoluptatem
-                                laudantium, totam 
-                            </p>
-                            <div class="flex gap-5 justify-center items-center">
-                                <img src="../assets/images/pic-1.png" alt="pic_1">
-                                <h1 class="font-bold text-blue-500 text-lg">Abina Villar</h1>
-                            </div>
-                        </div>
-                        <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
-                            <div class="flex flex-row gap-1 justify-center items-center">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                            </div>
-                            <p class="w-1/2 text-sm text-center text-gray-400">
-                                Sed ut perspiciatis unde omnis 
-                                istenatus error sitvoluptatem 
-                                laudantium, totam 
-                            </p>
-                            <div class="flex gap-5 justify-center items-center">
-                                <img src="../assets/images/pic-2.png" alt="pic_1">
-                                <h1 class="font-bold text-blue-500 text-lg">Tina Mangubat</h1>
-                            </div>
-                        </div>
-                        <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
-                            <div class="flex flex-row gap-1 justify-center items-center">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/blank_star.png" alt="star">
-                            </div>
-                            <p class="w-1/2 text-sm text-center text-gray-400">
-                                Sed ut perspiciatis unde omnis 
-                                istenatus error sitvoluptatem
-                                laudantium, totam 
-                            </p>
-                            <div class="flex gap-5 justify-center items-center">
-                                <img src="../assets/images/pic-3.png" alt="pic_1">
-                                <h1 class="font-bold text-blue-500 text-lg">Alejandro Dupa</h1>
-                            </div>
-                        </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../assets/images/group-2-review.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
-                    <!-- third group -->
-                    <div id="third-group" class="hidden flex-row gap-10 justify-center items-center ease-in-out duration-150">
-                        <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
-                            <div class="flex flex-row gap-1 justify-center items-center">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/blank_star.png" alt="star">
-                                <img src="../assets/icons/blank_star.png" alt="star">
-                            </div>
-                            <p class="w-1/2 text-sm text-center text-gray-400">
-                                Sed ut perspiciatis unde omnis 
-                                istenatus error sitvoluptatem
-                                laudantium, totam 
-                            </p>
-                            <div class="flex gap-5 justify-center items-center">
-                                <img src="../assets/images/pic-1.png" alt="pic_1">
-                                <h1 class="font-bold text-blue-500 text-lg">Atina Albona</h1>
-                            </div>
-                        </div>
-                        <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
-                            <div class="flex flex-row gap-1 justify-center items-center">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                            </div>
-                            <p class="w-1/2 text-sm text-center text-gray-400">
-                                Sed ut perspiciatis unde omnis 
-                                istenatus error sitvoluptatem 
-                                laudantium, totam 
-                            </p>
-                            <div class="flex gap-5 justify-center items-center">
-                                <img src="../assets/images/pic-2.png" alt="pic_1">
-                                <h1 class="font-bold text-blue-500 text-lg">Ana Simson</h1>
-                            </div>
-                        </div>
-                        <div class="flex flex-col justify-center items-center gap-5 p-10 shadow-2xl rounded-md">
-                            <div class="flex flex-row gap-1 justify-center items-center">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/full_star.png" alt="star">
-                                <img src="../assets/icons/blank_star.png" alt="star">
-                            </div>
-                            <p class="w-1/2 text-sm text-center text-gray-400">
-                                Sed ut perspiciatis unde omnis 
-                                istenatus error sitvoluptatem
-                                laudantium, totam 
-                            </p>
-                            <div class="flex gap-5 justify-center items-center">
-                                <img src="../assets/images/pic-3.png" alt="pic_1">
-                                <h1 class="font-bold text-blue-500 text-lg">Tinoy Kubasa</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-center items-center gap-5 mt-10">
-                        <img id="ellipse-1-home-review" src="../assets/icons/ellipse_full.png" alt="ellipse">
-                        <img id="ellipse-2-home-review" src="../assets/icons/ellipse_half.png" alt="ellipse">
-                        <img id="ellipse-3-home-review" src="../assets/icons/ellipse_half.png" alt="ellipse">
+                    <!-- Item 3 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../assets/images/group-3-review.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
                 </div>
-                <!-- right button -->
-                <button onclick="sliderHomeNext()" id="right-btn" class="w-20 h-20 ml-5">
-                    <img src="../assets/icons/right-arrow.png" alt="right_arrow">
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <span class="sr-only">Next</span>
+                    </span>
                 </button>
             </div>
         </div>
@@ -360,103 +208,40 @@ if(!isset($_SESSION["login"]))
             <h1 class="font-bold text-5xl">Lorem ipsum dolor, sit amet.</h1>
             <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Facilis iste dicta assumenda natus nostrum minima minus</p>
             <!-- slider container (employees) -->
-            <div class="flex flex-row justify-between items-center p-5 mt-5">
-                <!-- left button -->
-                <button disabled onclick="prevEmpHome()" id="left-emp-btn" class="w-20 h-20 mr-10 opacity-30">
-                    <img src="../assets/icons/left-arrow.png" alt="left_arrow">
-                </button>
-                <!-- slider content -->
-                <div id="slider-content">
-                    <!-- first employees -->
-                    <div id="first-emp" class="flex flex-row gap-10 justify-center items-center">
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/groundskeeper_1.png" alt="groundskeeper">
-                            <h1 class="text-blue-500 font-bold text-lg">Groundskeeper</h1>
-                            <h1 class="font-bold text-lg">Rodney Pamug</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2001</b></p>
-                        </div>
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/Gravedigger.png" alt="gravedigger">
-                            <h1 class="text-blue-500 font-bold text-lg">Gravedigger</h1>
-                            <h1 class="font-bold text-lg">Juan Cruz</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2006</b></p>
-                        </div>
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/admin_1.png" alt="administrator">
-                            <h1 class="text-blue-500 font-bold text-lg">Administrator</h1>
-                            <h1 class="font-bold text-lg">Pedro Aluni</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2002</b></p>
-                        </div>
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/caretaker_woman.png" alt="caretaker">
-                            <h1 class="text-blue-500 font-bold text-lg">Caretaker</h1>
-                            <h1 class="font-bold text-lg">Purificacion Burgos</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2002</b></p>
-                        </div>
+            <div id="indicators-carousel" class="relative w-full mt-5" data-carousel="static">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <!-- Item 1 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                        <img src="../assets/images/emp-group-1.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
-                    <!-- second employees -->
-                    <div id="second-emp" class="hidden flex-row gap-10 justify-center items-center">
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/groundskeeper_1.png" alt="groundskeeper">
-                            <h1 class="text-blue-500 font-bold text-lg">Groundskeeper</h1>
-                            <h1 class="font-bold text-lg">Monic Aloe Vera</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2001</b></p>
-                        </div>
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/Gravedigger.png" alt="gravedigger">
-                            <h1 class="text-blue-500 font-bold text-lg">Gravedigger</h1>
-                            <h1 class="font-bold text-lg">Juan Cruz</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2006</b></p>
-                        </div>
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/admin_1.png" alt="administrator">
-                            <h1 class="text-blue-500 font-bold text-lg">Administrator</h1>
-                            <h1 class="font-bold text-lg">Pedro Aluni</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2002</b></p>
-                        </div>
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/caretaker_man.png" alt="caretaker">
-                            <h1 class="text-blue-500 font-bold text-lg">Caretaker</h1>
-                            <h1 class="font-bold text-lg">Walt Disney</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2002</b></p>
-                        </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../assets/images/emp-group-2.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
-                    <!-- third employees -->
-                    <div id="third-emp" class="hidden flex-row gap-10 justify-center items-center">
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/groundskeeper_1.png" alt="groundskeeper">
-                            <h1 class="text-blue-500 font-bold text-lg">Groundskeeper</h1>
-                            <h1 class="font-bold text-lg">Abcd Efghi</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2001</b></p>
-                        </div>
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/Gravedigger.png" alt="gravedigger">
-                            <h1 class="text-blue-500 font-bold text-lg">Gravedigger</h1>
-                            <h1 class="font-bold text-lg">Juan Cruz</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2006</b></p>
-                        </div>
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/admin_1.png" alt="administrator">
-                            <h1 class="text-blue-500 font-bold text-lg">Administrator</h1>
-                            <h1 class="font-bold text-lg">Pedro Aluni</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2002</b></p>
-                        </div>
-                        <div class="flex flex-col gap-3 justify-center items-center p-10 shadow-2xl">
-                            <img class="rounded-full" src="../assets/images/caretaker_man.png" alt="caretaker">
-                            <h1 class="text-blue-500 font-bold text-lg">Caretaker</h1>
-                            <h1 class="font-bold text-lg">Cardo Dalisay</h1>
-                            <p class="text-center text-gray-400">Hard-working member since: <b>2002</b></p>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-center items-center gap-5 mt-10">
-                        <img id="emp-ellipse-1-home" src="../assets/icons/ellipse_full.png" alt="ellipse">
-                        <img id="emp-ellipse-2-home" src="../assets/icons/ellipse_half.png" alt="ellipse">
-                        <img id="emp-ellipse-3-home" src="../assets/icons/ellipse_half.png" alt="ellipse">
+                    <!-- Item 3 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../assets/images/emp-group-3.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
                 </div>
-                <!-- right button -->
-                <button onclick="nextEmpHome()" id="right-emp-btn" class="w-20 h-20 ml-5">
-                    <img src="../assets/icons/right-arrow.png" alt="right_arrow">
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <span class="sr-only">Next</span>
+                    </span>
                 </button>
             </div>
         </div>
@@ -512,11 +297,11 @@ if(!isset($_SESSION["login"]))
                     <h1 class="font-bold text-3xl border-b-2 border-b-blue-400 pb-5 w-1/2">Get in Touch</h1>
                     <form class="flex flex-col gap-3 mt-5 relative" action="">
                         <label class="font-semibold" for="name">Name</label>
-                        <input class="border-b-2 pr-3 pt-3 outline-none" type="text" id="name" required />
+                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="name" required />
                         <label class="font-semibold" for="emailOrPhoneNumber">Email/Phone number</label>
-                        <input class="border-b-2 pr-3 pt-3 outline-none" type="text" id="emailOrPhoneNumber" required>
+                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="emailOrPhoneNumber" required>
                         <label class="font-semibold" for="help">What can we help you with?</label>
-                        <input class="border-b-2 pr-3 pt-3 outline-none" id="help" />
+                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="help" />
                         <input type="submit" class="absolute top-64 right-1 bg-blue-500 text-white px-5 py-3 rounded-md w-1/4 mt-3 hover:cursor-pointer hover:bg-cyan-300 duration-150">
                     </form>
                 </div>
@@ -570,8 +355,8 @@ if(!isset($_SESSION["login"]))
     </div>  
     
     <!-- end of footer -->  
-    <script src="../javascript/slider-review.js"></script>
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/user-menu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 </html>
