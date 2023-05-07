@@ -1,7 +1,10 @@
 <?php 
-session_start ();
+session_start();
 if(!isset($_SESSION["login"]))
 	header("location:login.php"); 
+$loggedInUser=$_SESSION["loggedInUser"];
+print_r($loggedInUser);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -83,8 +86,16 @@ if(!isset($_SESSION["login"]))
                     <div id="user-menu" class="z-10 hidden flex-col absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-50 dark:bg-gray-700">
                         <!-- Dropdown menu -->
                         <div class="px-4 py-3 text-gray-900 dark:text-white">
-                            <h1 class="text-lg">Jolli Bee</h1>
-                            <h1 class="font-medium truncate text-sm ">jollibee@bidaangsaya.com</h1 >
+                            <h1 class="text-lg">
+                                <?php 
+                                    echo $loggedInUser["fName"]." ".$loggedInUser["lName"];
+                                ?>
+                            </h1>
+                            <h1 class="font-medium truncate text-sm ">
+                                <?php 
+                                    echo $loggedInUser["userEmail"];
+                                ?>
+                            </h1 >
                         </div>
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                             <li>

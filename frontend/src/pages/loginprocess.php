@@ -11,6 +11,7 @@ if(isset($_REQUEST['sub'])){
 	if($numRows == 1){	
 		$row = mysqli_fetch_assoc($res);
 		if (password_verify($b, $row['userPassword'])){
+			$_SESSION["loggedInUser"] = $row;
 			$_SESSION["login"]="1";
 			header("location:homepage.php");
 		}
