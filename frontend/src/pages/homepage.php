@@ -56,7 +56,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
                 <h1 class="font-bold text-2xl">CareGraver</h1>
                 <div class="flex gap-10 font-semibold" id="topnav">
                     <a class="duration-150" href="#home">Home</a>
-                    <a class="duration-150" href="#service">Services</a>
+                    <a class="duration-150" href="#service">Products & Services</a>
                     <a class="duration-150" href="#explorer">Explorer</a>
                     <a class="duration-150" href="#contact">Contact</a>
                 </div>
@@ -72,16 +72,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
                         <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         <img class="w-5 h-5" src="../assets/icons/user icon.png" alt="user_icon">
                     </button>
-                    <!--<div id="user-menu" class="hidden flex-col absolute bg-white rounded-md p-5 w-max z-10">
-                        <h1 class="font-bold text-2xl">Jolli Bee</h1>
-                        <a class="text-lg" href="">Manage Account</a>
-                        <a class="text-lg" href="">Orders</a>
-                        <a class="text-lg" href="">Chats</a>
-                        <br>
-                        <br>
-                        <a class="text-lg" href="">Switch Account</a>   
-                        <a class="text-lg font-semibold hover:text-red-500" href="login.html">Log Out Account</a>
-                    </div>  -->  
+                    <!-- user account --> 
                     <div id="user-menu" class="z-10 hidden flex-col absolute bg-white divide-y divide-gray-100 rounded-md shadow w-50 dark:bg-gray-700 w-max">
                         <!-- Dropdown menu -->
                         <div class="px-4 py-3 text-gray-900 dark:text-white">
@@ -114,6 +105,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
                             <a href="logoutprocess.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
                         </div>
                     </div>
+                    <!-- end of user account -->
                 </div>
                 <a href="">
                     <img class="w-5 h-5" src="../assets/icons/search icon.png" alt="search_icon">
@@ -140,25 +132,25 @@ $loggedInUser=$_SESSION["loggedInUser"];
     <!-- services section -->
     <div class="h-full bg-gray-100" id="service">
         <div class="flex flex-col gap-6 justify-start p-28">
-            <h1 class="text-blue-500 font-bold text-lg">Our Services</h1>
+            <h1 class="text-blue-500 font-bold text-lg">Our Products & Services</h1>
             <h1 class="font-bold text-5xl">Lorem ipsum dolor, sit amet.</h1>
             <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Facilis iste dicta assumenda natus nostrum minima minus</p>
             <!-- services ehe uwu  -->
             <div class="flex flex-col gap-5">
                 <div class="flex flex-row shadow-lg">
-                    <img src="../assets/images/services_1.png" alt="service_1">
+                    <img src="../assets/images/products.png" alt="products_1">
                     <div class="flex flex-col justify-start gap-5 p-10">
-                        <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Cemetery Maintenance</h1>
+                        <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Products</h1>
                         <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
                         <button type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
                     </div>
                 </div>
                 <div class="flex flex-row shadow-lg">
-                    <img src="../assets/images/services_2.png" alt="service_2">
+                    <img src="../assets/images/services_1.png" alt="service_2">
                     <div class="flex flex-col justify-start gap-5 p-10">
-                        <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Grave Openings</h1>
+                        <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Services</h1>
                         <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
-                        <button type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
+                        <button  onClick="location.href='services.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
                     </div>
                 </div>
             </div>
