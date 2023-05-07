@@ -1,10 +1,5 @@
-<?php 
-session_start ();
-if(!isset($_SESSION["login"]))
-	header("location:login.php"); 
-?>
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,7 +44,7 @@ if(!isset($_SESSION["login"]))
 	<!-- end of chatbox -->
     <div id="home" class="relative bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center">
         <!-- navbar -->
-        <div id="navbar" class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-50">
+        <div id="navbar" class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 duration-150 opacity-80 z-50">
             <div class="flex justify-start ml-24 items-center gap-36">
                 <h1 class="font-bold text-2xl">CareGraver</h1>
                 <div class="flex gap-10 font-semibold" id="topnav">
@@ -101,7 +96,7 @@ if(!isset($_SESSION["login"]))
                             </li>                  
                         </ul>
                         <div class="py-2">
-                            <a href="logoutprocess.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                            <a href="login.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
                         </div>
                     </div>
                 </div>
@@ -112,8 +107,8 @@ if(!isset($_SESSION["login"]))
         </div>
         <!-- end of navbar -->
         <!-- content div -->
-        <div class="flex flex-col items-start justify-center h-screen p-28 bg-gradient-to-r from-white to-transparent">
-            <h1 class="text-5xl mt-10 font-bold leading-snug">Love<br>Transcends<br>Death</h1>
+        <div class="flex flex-col items-start justify-start h-screen p-28 bg-gradient-to-r from-white to-transparent">
+            <h1 class="text-5xl mt-5 font-bold leading-snug">Love<br>Transcends<br>Death</h1>
             <br>
             <p class="text-xl">
                 At CareGraver, we recognize that love is eternal and that memories <br>
@@ -121,10 +116,9 @@ if(!isset($_SESSION["login"]))
                 honor and pay tribute to those who have passed away, and to help you keep their memory alive.
             </p>
             <br>
-            <a 
-                class="bg-blue-500 p-5 rounded-md text-white font-semibold hover:bg-cyan-300 duration-150"
-                type="button"
-                href="#service">Start your care</a>
+            <a class="bg-blue-500 p-5 rounded-md text-white font-semibold hover:bg-cyan-300 duration-150"
+            type="button"
+            href="#service">Start your care</a>
         </div>
     </div>
     <!-- services section -->
@@ -186,14 +180,14 @@ if(!isset($_SESSION["login"]))
                 </div>
                 <!-- Slider controls -->
                 <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-full sm:w-10 sm:h-10 hover:bg-gray-400 duration-150 group-focus:outline-none">
-                        <svg aria-hidden="true" class="w-10 h-10 text-black sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                         <span class="sr-only">Previous</span>
                     </span>
                 </button>
                 <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-full sm:w-10 sm:h-10 hover:bg-gray-400 duration-150 group-focus:outline-none">
-                        <svg aria-hidden="true" class="w-10 h-10 text-black sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         <span class="sr-only">Next</span>
                     </span>
                 </button>
@@ -232,14 +226,14 @@ if(!isset($_SESSION["login"]))
                 </div>
                 <!-- Slider controls -->
                 <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-full sm:w-10 sm:h-10 hover:bg-gray-400 duration-150 group-focus:outline-none">
-                        <svg aria-hidden="true" class="w-10 h-10 text-black sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                         <span class="sr-only">Previous</span>
                     </span>
                 </button>
                 <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-full sm:w-10 sm:h-10 hover:bg-gray-400 duration-150 group-focus:outline-none">
-                        <svg aria-hidden="true" class="w-10 h-10 text-black sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         <span class="sr-only">Next</span>
                     </span>
                 </button>
@@ -248,7 +242,7 @@ if(!isset($_SESSION["login"]))
     </div>
     <!-- end of services staff -->
     <!-- grave explorer -->
-    <div class="h-full" id="explorer">
+    <div class="h-full bg-white" id="explorer">
         <div class="flex flex-col gap-6 justify-start p-28">
             <h1 class="text-blue-500 font-bold text-lg">Take a tour on our cemetery</h1>
             <h1 class="font-bold text-5xl">Cemetery Explorer</h1>
@@ -296,13 +290,13 @@ if(!isset($_SESSION["login"]))
                 <div class="p-5 w-1/2">
                     <h1 class="font-bold text-3xl border-b-2 border-b-blue-400 pb-5 w-1/2">Get in Touch</h1>
                     <form class="flex flex-col gap-3 mt-5 relative" action="">
-                        <label class="font-semibold" for="name">Name</label>
-                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="name" required />
+                        <label class="font-semibold" for="username">Name</label>
+                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="username" required />
                         <label class="font-semibold" for="emailOrPhoneNumber">Email/Phone number</label>
-                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="emailOrPhoneNumber" required>
+                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="emailOrPhoneNumber" required />
                         <label class="font-semibold" for="help">What can we help you with?</label>
                         <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="help" />
-                        <input type="submit" class="absolute top-64 xl:top-64 right-1 bg-blue-500 text-white px-5 py-3 rounded-md w-1/4 mt-3 hover:cursor-pointer hover:bg-cyan-300 duration-150">
+                        <input type="submit" class="absolute top-72 right-1 bg-blue-500 text-white px-5 py-3 rounded-md w-1/4 mt-3 hover:cursor-pointer hover:bg-cyan-300 duration-150">
                     </form>
                 </div>
             </div>
@@ -310,7 +304,7 @@ if(!isset($_SESSION["login"]))
     </div>
     <!-- end of contact us section -->
     <!-- footer -->
-    <div class="flex flex-row justify-evenly gap-10 h-1/2 py-20 px-28">
+    <div class="flex flex-row justify-evenly gap-10 h-1/2 py-20 px-28 bg-white">
         <div class="flex flex-col gap-5">
             <h1 class="text-lg font-bold text-center">Get In Touch</h1>
             <p class="text-gray-400 mt-3">You may also contact <br> us at our social media.</p>

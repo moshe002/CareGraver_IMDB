@@ -30,19 +30,27 @@
             <h1 class="font-semibold text-2xl">Sign Up</h1>
             <form class="flex flex-col gap-5">
                 <input
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="email" id="email" placeholder="Enter Email" required>
                 <input 
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
-                    type="text" id="username" placeholder="Create Username" required>   
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
+                    type="text" id="username" placeholder="Create Username" required>  
+                <div class="flex flex-row justify-center gap-7">
+                    <input 
+                        class="w-36 bg-gray-200 p-3 rounded-md placeholder-black focus:outline-blue-500" 
+                        type="text" id="firstname" placeholder="First Name" required> 
+                    <input 
+                        class="w-36 bg-gray-200 p-3 rounded-md placeholder-black focus:outline-blue-500" 
+                        type="text" id="lastname" placeholder="Last Name" required>
+                </div> 
                 <input 
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="number" id="contactnumber" placeholder="Contact number" required>   
                 <input 
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="password" id="password" placeholder="Password" required>
                 <input 
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="password" id="confirmpassword" placeholder="Confirm Password" required>
                 <button 
                     class="bg-blue-500 p-3 rounded-md text-white mt-7 w-80"

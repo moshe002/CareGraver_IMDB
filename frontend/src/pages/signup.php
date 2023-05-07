@@ -27,7 +27,7 @@
             <br>
             <br>
             <p>If you already have an account <br>
-            You can <a class="text-blue-500 hover:cursor-pointer font-bold" href="login.html">Login here!</a>
+            You can <a class="text-blue-500 hover:cursor-pointer font-bold" href="login.php">Login here!</a>
             </p>
         </div>
         <!-- form div -->
@@ -35,38 +35,36 @@
             <h1 class="font-semibold text-2xl">Sign Up</h1>
             <form class="flex flex-col gap-5" action="/Caregraver/frontend/src/pages/signupprocess.php" method="post">
                 <input
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="email" id="email" placeholder="Enter Email" name="email" aria-describedby="emailHelp" required>
                     <?php  if(in_array("Email_Taken", $errorValidate)) echo "Email already in use<br>";?>
                     <?php  if(in_array("Invalid_Email", $errorValidate)) echo "Invalid email format<br>";?>
                 <input 
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="text" id="username" placeholder="Create Username" name="username" required>
                     <?php if(in_array("Username_Taken", $errorValidate)) echo "Username already in use<br>";?> 
+                <div class="flex flex-row justify-center gap-7">
+                    <input 
+                        class="w-36 bg-gray-200 p-3 rounded-md placeholder-black focus:outline-blue-500" 
+                        type="text" id="firstname" placeholder="First Name" required> 
+                    <input 
+                        class="w-36 bg-gray-200 p-3 rounded-md placeholder-black focus:outline-blue-500" 
+                        type="text" id="lastname" placeholder="Last Name" required>
+                </div> 
                 <input 
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="number" id="contact" name="contact" placeholder="Contact number" required>   
                 <input 
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="password" id="pass" name="pass"placeholder="Password" required>
                     <?php if(in_array("Password_Mismatch", $errorValidate)) echo "The passwords you entered do not match<br>";?> 
                 <input 
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80"
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="password" id="confirmpass" name="confirmpass" placeholder="Confirm Password" required>
                 <button 
-                    class="bg-blue-500 p-3 rounded-md text-white mt-7 w-80"
+                    class="bg-blue-500 p-3 rounded-md text-white mt-7 w-80 focus:outline-blue-500"
                     type="submit">Register</button>
             </form>
-            <h1 class="text-center text-gray-500">or continue with</h1>
-            <!-- icons div -->
-            <div class="flex flex-row justify-center gap-3">
-                <a href="">
-                    <img src="/frontend/src/assets/icons/fb icon.png" alt="fb_icon">
-                </a>
-                <a href="">
-                    <img src="/frontend/src/assets/icons/google icon.png" alt="google_icon">
-                </a>
-            </div>
         </div>
     </div>
 </body>
