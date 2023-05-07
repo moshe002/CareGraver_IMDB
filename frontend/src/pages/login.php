@@ -1,5 +1,5 @@
 <?php
-    $curError = array("");
+    $curError = "";
     isset($_GET['err']) ? $curError = $_GET['err'] : false;
     isset($_GET['logout']) ? $curError = $_GET['logout'] : false;    
 ?>
