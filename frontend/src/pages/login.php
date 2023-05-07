@@ -1,7 +1,8 @@
 <?php
     $curError = "";
     isset($_GET['err']) ? $curError = $_GET['err'] : false;
-    isset($_GET['logout']) ? $curError = $_GET['logout'] : false;    
+    isset($_GET['logout']) ? $curError = "logoutsuccess" : false;
+    isset($_GET['register']) ? $curError = "registersuccess" : false;       
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@
         <div class="flex flex-col justify-center p-3 gap-7">
             <h1 class="font-semibold text-2xl">Sign in</h1>
             <form class="flex flex-col relative gap-5" method="POST" action="/CareGraver_IMDB/frontend/src/pages/loginprocess.php">
-            <?php  if($curError == "success") echo "Logged out successfully<br>";?>
+            <?php  if($curError == "logoutsuccess") echo "Logged out successfully<br>";?>
             <?php  if($curError == "1") echo "We couldn't find an account with that email address or username.<br>";?>
                 <input
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"

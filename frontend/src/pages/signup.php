@@ -33,7 +33,7 @@
         <!-- form div -->
         <div class="flex flex-col justify-center p-3 gap-7">
             <h1 class="font-semibold text-2xl">Sign Up</h1>
-            <form class="flex flex-col gap-5" action="/Caregraver/frontend/src/pages/signupprocess.php" method="post">
+            <form class="flex flex-col gap-5" action="signupprocess.php" method="post">
                 <input
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="email" id="email" placeholder="Enter Email" name="email" aria-describedby="emailHelp" required>
@@ -46,10 +46,10 @@
                 <div class="flex flex-row justify-center gap-7">
                     <input 
                         class="w-36 bg-gray-200 p-3 rounded-md placeholder-black focus:outline-blue-500" 
-                        type="text" id="firstname" placeholder="First Name" required> 
+                        type="text" id="firstname" name="firstname" placeholder="First Name" required> 
                     <input 
                         class="w-36 bg-gray-200 p-3 rounded-md placeholder-black focus:outline-blue-500" 
-                        type="text" id="lastname" placeholder="Last Name" required>
+                        type="text" id="lastname" name="lastname" placeholder="Last Name" required>
                 </div> 
                 <input 
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"

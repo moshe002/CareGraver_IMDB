@@ -20,6 +20,10 @@
         //Password
         $txtPass = strip_tags($_POST['pass']); //password, strip_tags = remove html tags  
         $txtConfirm = strip_tags($_POST['confirmpass']); //contact number, strip_tags = remove html tags
+
+        //First and Last Name
+        $txtLName = strip_tags($_POST['lastname']);
+        $txtFName = strip_tags($_POST['firstname']);
                 
         //username and password validation
         $sql = "Select * from user where userName='$txtUsername'";    
@@ -33,7 +37,7 @@
                 $hash = password_hash($txtPass, PASSWORD_DEFAULT);   
                 if(filter_var($txtEmail,FILTER_VALIDATE_EMAIL)){
                     $txtEmail = filter_var($txtEmail, FILTER_VALIDATE_EMAIL);//validate email
-                    $sql = "INSERT INTO `user` ( `userEmail`, `userName`,`userPassword`,`dateJoined`) VALUES ('$txtEmail','$txtUsername', '$hash', current_timestamp())";    
+                    $sql = "INSERT INTO `user` ( `userEmail`, `userName`, `fName`, `lName`,`userPassword`,`contactNo`,`dateJoined`) VALUES ('$txtEmail','$txtUsername', '$txtFName', '$txtLName','$hash', '$txtContact', current_timestamp())";    
                     $result = mysqli_query($mysqli, $sql);                                          
                 }
                 else {
@@ -57,7 +61,7 @@
         }
         else{	
             $_SESSION["login"]="1";
-            header("location:homepage.php");
+            header("location:login.php?register=success");  
         } 
 
     }
