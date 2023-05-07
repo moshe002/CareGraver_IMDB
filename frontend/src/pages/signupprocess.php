@@ -23,7 +23,11 @@
 
         //First and Last Name
         $txtLName = strip_tags($_POST['lastname']);
+        $_SESSION['lastname'] = $txtLName;// Stores lastnam into session variable
+
         $txtFName = strip_tags($_POST['firstname']);
+        $_SESSION['firstname'] = $txtFName;// Stores username into session variable
+
                 
         //username and password validation
         $sql = "Select * from user where userName='$txtUsername'";    

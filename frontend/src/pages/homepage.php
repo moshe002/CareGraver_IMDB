@@ -3,7 +3,6 @@ session_start();
 if(!isset($_SESSION["login"]))
 	header("location:login.php"); 
 $loggedInUser=$_SESSION["loggedInUser"];
-print_r($loggedInUser);
     
 ?>
 <!DOCTYPE html>
@@ -83,11 +82,11 @@ print_r($loggedInUser);
                         <a class="text-lg" href="">Switch Account</a>   
                         <a class="text-lg font-semibold hover:text-red-500" href="login.html">Log Out Account</a>
                     </div>  -->  
-                    <div id="user-menu" class="z-10 hidden flex-col absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-50 dark:bg-gray-700">
+                    <div id="user-menu" class="z-10 hidden flex-col absolute bg-white divide-y divide-gray-100 rounded-md shadow w-50 dark:bg-gray-700 w-max">
                         <!-- Dropdown menu -->
                         <div class="px-4 py-3 text-gray-900 dark:text-white">
                             <h1 class="text-lg">
-                                <?php 
+                                <?php   
                                     echo $loggedInUser["fName"]." ".$loggedInUser["lName"];
                                 ?>
                             </h1>

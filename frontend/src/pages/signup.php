@@ -1,6 +1,7 @@
 <?php
-    $_GET['err'] = "";
-    $curError = $_GET['err'];
+    session_start();
+    $curError = "";
+    isset($_GET['err']) ? $curError = $_GET['err'] : false;
     $errorValidate = explode("&&", $curError);
 ?>
 <!DOCTYPE html>
@@ -33,31 +34,40 @@
         <!-- form div -->
         <div class="flex flex-col justify-center p-3 gap-7">
             <h1 class="font-semibold text-2xl">Sign Up</h1>
-            <form class="flex flex-col gap-5" action="signupprocess.php" method="post">
+            <form class="flex flex-col gap-5" action="/CareGraver_IMDB/frontend/src/pages/signupprocess.php" method="post">
+                <?php  if(in_array("Email_Taken", $errorValidate)) echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">Email already in use<br></p>';
+                    elseif(in_array("Invalid_Email", $errorValidate)) echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">Invalid email format<br></p>';
+                    elseif(in_array("Username_Taken", $errorValidate)) echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">Username already in use<br></p>';
+                    elseif(in_array("Passwords_Mismatch", $errorValidate))echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">The passwords you entered do not match<br></p>';
+                ?>
                 <input
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
-                    type="email" id="email" placeholder="Enter Email" name="email" aria-describedby="emailHelp" required>
-                    <?php  if(in_array("Email_Taken", $errorValidate)) echo "Email already in use<br>";?>
-                    <?php  if(in_array("Invalid_Email", $errorValidate)) echo "Invalid email format<br>";?>
+                    type="email" id="email" placeholder="Enter Email" name="email" aria-describedby="emailHelp" 
+                    value="<?php if(isset($_SESSION['email'])){ echo $_SESSION['email'];}?>"required>
+                    
                 <input 
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
-                    type="text" id="username" placeholder="Create Username" name="username" required>
-                    <?php if(in_array("Username_Taken", $errorValidate)) echo "Username already in use<br>";?> 
+                    type="text" id="username" placeholder="Create Username" name="username" 
+                    value="<?php if(isset($_SESSION['username'])){ echo $_SESSION['username'];}?>"required>
+                     
                 <div class="flex flex-row justify-center gap-7">
                     <input 
                         class="w-36 bg-gray-200 p-3 rounded-md placeholder-black focus:outline-blue-500" 
-                        type="text" id="firstname" name="firstname" placeholder="First Name" required> 
+                        type="text" id="firstname" name="firstname" placeholder="First Name" 
+                        value="<?php if(isset($_SESSION['firstname'])){ echo $_SESSION['firstname'];}?>" required> 
                     <input 
                         class="w-36 bg-gray-200 p-3 rounded-md placeholder-black focus:outline-blue-500" 
-                        type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+                        type="text" id="lastname" name="lastname" placeholder="Last Name" 
+                        value="<?php if(isset($_SESSION['lastname'])){ echo $_SESSION['lastname'];}?>"required>
                 </div> 
                 <input 
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
-                    type="number" id="contact" name="contact" placeholder="Contact number" required>   
+                    type="number" id="contact" name="contact" placeholder="Contact number" 
+                    value="<?php if(isset($_SESSION['contact'])){ echo $_SESSION['contact'];}?>"required>   
                 <input 
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="password" id="pass" name="pass"placeholder="Password" required>
-                    <?php if(in_array("Password_Mismatch", $errorValidate)) echo "The passwords you entered do not match<br>";?> 
+                    
                 <input 
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="password" id="confirmpass" name="confirmpass" placeholder="Confirm Password" required>
