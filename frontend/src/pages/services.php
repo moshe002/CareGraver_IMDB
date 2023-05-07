@@ -103,7 +103,7 @@
         <!-- services section -->
     <div class="h-full bg-gray-100" id="service">
         <div class="flex flex-col gap-10 justify-start p-28">
-            <h1 class="text-blue-500 font-bold text-lg">Our Services</h1>
+            <h1 class="text-blue-500 font-bold text-lg">Browse Our Services</h1>
             <h1 class="font-bold text-5xl">Cemetery Services</h1>
             <p class="text-gray-400 text-sm">Duis aute irure dolor in reprehenderit in voluptate velitesse cillum dolore eu fugiat nulla pariatur. <br> Excepteur sint occaecat cupidatat.</p>
             <br>

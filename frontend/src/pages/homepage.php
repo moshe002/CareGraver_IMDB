@@ -1,4 +1,4 @@
-<?php 
+<?php   
 session_start();
 if(!isset($_SESSION["login"]))
 	header("location:login.php"); 
@@ -147,7 +147,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
                     <div class="flex flex-col justify-start gap-5 p-10">
                         <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Products</h1>
                         <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
-                        <button type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
+                        <button onClick="location.href='products.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
                     </div>
                 </div>
                 <div class="flex flex-row shadow-lg">
