@@ -49,7 +49,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
         </div>	  
     </div>	
 	<!-- end of chatbox -->
-    <div id="home" class="relative bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center">
+    <div id="home" class="relative bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center" style="background-attachment: fixed;">
         <!-- navbar -->
         <div id="navbar" class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-50">
             <div class="flex justify-start ml-24 items-center gap-36">
@@ -265,7 +265,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
             <br>
             <!-- slider -->
             <div class="flex justify-center items-end">
-                <a href="grave-explorer.html" class="bg-blue-500 text-white font-semibold p-5 rounded-md hover:bg-cyan-300 duration-150" type="button">Explore Map</a>
+                <a href="grave-explorer.php" class="bg-blue-500 text-white font-semibold p-5 rounded-md hover:bg-cyan-300 duration-150" type="button">Explore Map</a>
             </div>
         </div>
     </div>
@@ -310,6 +310,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
             </div>
         </div>
     </div>
+</div>
     <!-- end of contact us section -->
     <!-- footer -->
     <div class="flex flex-row justify-evenly gap-10 h-1/2 py-20 px-28">
