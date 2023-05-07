@@ -23,6 +23,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
     <title>Home</title>
     <link rel="stylesheet" href="../css/chatbox.css">
     <script src="../javascript/chatbox.js"></script>
+    <script src="../javascript/scroll.js"></script>
 </head>
 <body class="scroll-smooth font-montserrat">
     <!-- chatbox -->
@@ -50,16 +51,17 @@ $loggedInUser=$_SESSION["loggedInUser"];
     </div>	
 	<!-- end of chatbox -->
     <div id="home" class="relative bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center" style="background-attachment: fixed;">
-        <!-- navbar -->
-        <div id="navbar" class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-50">
+    <!-- navbar -->
+    <header>
+        <div id="navbar" class="wrapHead flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-50">
             <div class="flex justify-start ml-24 items-center gap-36">
                 <h1 class="font-bold text-2xl">CareGraver</h1>
-                <div class="flex gap-10 font-semibold" id="topnav">
-                    <a class="duration-150" href="#home">Home</a>
-                    <a class="duration-150" href="#service">Products & Services</a>
-                    <a class="duration-150" href="#explorer">Explorer</a>
-                    <a class="duration-150" href="#contact">Contact</a>
-                </div>
+                <nav class="flex gap-10 font-semibold" id="topnav">
+                    <a class="scroll duration-150" href="#home">Home</a>
+                    <a class="scroll duration-150" href="#service">Products & Services</a>
+                    <a class="scroll duration-150" href="#explorer">Explorer</a>
+                    <a class="scroll duration-150" href="#contact">Contact</a>                              
+                </nav>
             </div>
             <!-- two icons div? -->
             <div class="flex gap-10 items-center justify-center mr-24">
@@ -112,6 +114,9 @@ $loggedInUser=$_SESSION["loggedInUser"];
                 </a>
             </div>
         </div>
+    </header>    
+
+        
         <!-- end of navbar -->
         <!-- content div -->
         <div class="flex flex-col items-start justify-center h-screen p-28 bg-gradient-to-r from-white to-transparent">
