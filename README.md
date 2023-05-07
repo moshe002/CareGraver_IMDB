@@ -4,3 +4,5 @@
 
 ----
 * every page should be connected sa session for example: dli maka sayon2 sulod sa grave explorer if dli ka login. Nindot unta if pwede siya makasulod but if mu reserve or mu click siyag inquire dapat naka login siya. Same sa products and services
+
+*redundancy sa navigation bar - need pa tarongon navigation bar kay magsige balik balik ang code 
