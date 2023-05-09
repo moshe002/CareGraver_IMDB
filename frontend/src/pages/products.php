@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/chatbox.css">
     <script src="../javascript/chatbox.js"></script>
 </head>
-<body class="scroll-smooth font-montserrat ">
+<body class="scroll-smooth font-montserrat">
     <!-- chatbox -->
     <div id="body"> 
         <div id="chat-circle" class="btn btn-raised" >
@@ -41,7 +41,7 @@
         </div>	  
     </div>	
 	<!-- end of chatbox -->
-    <div id="home" class=" wrapper bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center">
+    <div id="home" class="wrapper bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center">
         <!-- navbar -->
         <div class="flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-10">
             <div class="flex justify-start ml-24 items-center gap-36">
@@ -167,4 +167,6 @@
             </div>
         </div>
     </div>
+</body>
+</html>
     <!--end of products section  -->

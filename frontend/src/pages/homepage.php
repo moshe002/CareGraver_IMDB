@@ -17,7 +17,6 @@ $loggedInUser=$_SESSION["loggedInUser"];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <title>Home</title>
@@ -26,97 +25,71 @@ $loggedInUser=$_SESSION["loggedInUser"];
     <script src="../javascript/scroll.js"></script>
 </head>
 <body class="scroll-smooth font-montserrat">
-    <!-- chatbox -->
-    <div id="body"> 
-        <div id="chat-circle" class="btn btn-raised" >
-            <div id="chat-overlay"></div>
-            <i id = "icon" class='far fa-comments' style='font-size:25px'></i>
-        </div>
-      
-        <div class="chat-box" >
-            <div class="chat-box-header">
-                <span class="chat-box-toggle"><i class="material-icons">&times;</i></span>
-            </div>
-            <div class="chat-box-body">
-                <div class="chat-box-overlay"></div>
-                <div class="chat-logs"></div><!--chat-log -->
-            </div>
-            <div class="chat-input">      
-                <form>
-                    <input type="text" id="chat-input" placeholder="Send a message..."/>
-                    <button type="submit" class="chat-submit" id="chat-submit"><i class="material-icons">send</i></button>
-                </form>      
-            </div>
-        </div>	  
-    </div>	
-	<!-- end of chatbox -->
+    <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/chatbox.php' ?>
     <div id="home" class="relative bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center" style="background-attachment: fixed;">
     <!-- navbar -->
-    <header>
-        <div id="navbar" class="wrapHead flex flex-row fixed justify-between items-center w-full bg-gray-300 p-5 opacity-80 z-50">
-            <div class="flex justify-start ml-24 items-center gap-36">
-                <h1 class="font-bold text-2xl">CareGraver</h1>
-                <nav class="flex gap-10 font-semibold" id="topnav">
-                    <a class="scroll duration-150" href="#home">Home</a>
-                    <a class="scroll duration-150" href="#service">Products & Services</a>
-                    <a class="scroll duration-150" href="#explorer">Explorer</a>
-                    <a class="scroll duration-150" href="#contact">Contact</a>                              
-                </nav>
-            </div>
-            <!-- two icons div? -->
-            <div class="flex gap-10 items-center justify-center mr-24">
-                <div class="relative">
-                    <button id="dropdownInformationButton" 
-                        data-dropdown-toggle="dropdownInformation" 
-                        class="text-white hover:bg-slate-50 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:hover:bg-white dark:focus:ring-white duration-150" 
-                        type="button" 
-                        onclick="onOpen()"> 
-                        <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        <img class="w-5 h-5" src="../assets/icons/user icon.png" alt="user_icon">
-                    </button>
-                    <!-- user account --> 
-                    <div id="user-menu" class="z-10 hidden flex-col absolute bg-white divide-y divide-gray-100 rounded-md shadow w-50 dark:bg-gray-700 w-max">
-                        <!-- Dropdown menu -->
-                        <div class="px-4 py-3 text-gray-900 dark:text-white">
-                            <h1 class="text-lg">
-                                <?php   
-                                    echo $loggedInUser["fName"]." ".$loggedInUser["lName"];
-                                ?>
-                            </h1>
-                            <h1 class="font-medium truncate text-sm ">
-                                <?php 
-                                    echo $loggedInUser["userEmail"];
-                                ?>
-                            </h1 >
-                        </div>
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Manage Account</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Orders</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Chats</a>
-                            </li>                  
-                        </ul>
-                        <div class="py-2">
-                            <a href="logoutprocess.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                        </div>
-                    </div>
-                    <!-- end of user account -->
+        <header>
+            <div id="navbar" class="wrapHead flex flex-row fixed justify-between items-center w-full bg-white shadow-2xl p-5 duration-150 opacity-60 z-50">
+                <div class="flex justify-start ml-24 items-center gap-24">
+                    <h1 class="font-bold text-2xl">CareGraver</h1>
+                    <nav class="flex gap-10 font-semibold" id="topnav">
+                        <a class="scroll duration-150" href="#home">Home</a>
+                        <a class="scroll duration-150" href="#service">Reserve</a>
+                        <a class="scroll duration-150" href="#explorer">Explorer</a>
+                        <a type="button" class="scroll duration-150 hover:cursor-pointer" onclick="(function(){
+                            window.location.href = 'contact-page.php';
+                            return false;
+                        })();return false;">Contact Us</a>                              
+                    </nav>
                 </div>
-                <a href="">
-                    <img class="w-5 h-5" src="../assets/icons/search icon.png" alt="search_icon">
-                </a>
+                <!-- two icons div? -->
+                <div class="flex gap-10 items-center justify-center mr-24">
+                    <div class="relative">
+                        <button 
+                            class="text-black text-lg font-medium p-2 rounded-md text-center inline-flex items-center hover:bg-blue-400 hover:text-white hover:opacity-100 focus:bg-blue-400 focus:text-white duration-150" 
+                            type="button" 
+                            onclick="onOpen()"> 
+                            <h1>Hello,&nbsp;</h1>
+                            <h1 name="username" class="">Cardo Dalisay</h1>
+                        </button>
+                        <!-- user account --> 
+                        <div id="user-menu" class="z-10 hidden flex-col absolute bg-white divide-y divide-gray-100 rounded-md shadow w-50 dark:bg-gray-700 w-max">
+                            <!-- Dropdown menu -->
+                            <div class="px-4 py-3 text-gray-900 dark:text-white">
+                                <h1 class="text-lg">
+                                    <?php   
+                                        echo $loggedInUser["fName"]." ".$loggedInUser["lName"];
+                                    ?>
+                                </h1>
+                                <h1 class="font-medium truncate text-sm ">
+                                    <?php 
+                                        echo $loggedInUser["userEmail"];
+                                    ?>
+                                </h1 >
+                            </div>
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Manage Account</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Orders</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Chats</a>
+                                </li>                  
+                            </ul>
+                            <div class="py-2">
+                                <a href="logoutprocess.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                            </div>
+                        </div>
+                        <!-- end of user account -->
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>    
-
-        
+        </header>    
         <!-- end of navbar -->
         <!-- content div -->
         <div class="flex flex-col items-start justify-center h-screen p-28 bg-gradient-to-r from-white to-transparent">
@@ -155,105 +128,13 @@ $loggedInUser=$_SESSION["loggedInUser"];
                     <div class="flex flex-col justify-start gap-5 p-10">
                         <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Services</h1>
                         <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
-                        <button  onClick="location.href='services.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
+                        <button onClick="location.href='services.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--end of services section  -->
-    <!-- services reviews (what our clients say) -->
-    <div class="h-full">
-        <div class="flex flex-col gap-6 justify-start p-28">
-            <h1 class="text-blue-500 font-bold text-lg">What Our Clients Say</h1>
-            <h1 class="font-bold text-5xl">Lorem ipsum dolor, sit amet.</h1>
-            <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Facilis iste dicta assumenda natus nostrum minima minus</p>
-            <!-- slider -->
-            <div id="indicators-carousel" class="relative w-full mt-5" data-carousel="static">
-                <!-- Carousel wrapper -->
-                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                    <!-- Item 1 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                        <img src="../assets/images/group-1-review.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="../assets/images/group-2-review.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="../assets/images/group-3-review.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                </div>
-                <!-- Slider indicators -->
-                <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                </div>
-                <!-- Slider controls -->
-                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-full sm:w-10 sm:h-10 hover:bg-gray-400 duration-150 group-focus:outline-none">
-                        <svg aria-hidden="true" class="w-10 h-10 text-black sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                        <span class="sr-only">Previous</span>
-                    </span>
-                </button>
-                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-full sm:w-10 sm:h-10 hover:bg-gray-400 duration-150 group-focus:outline-none">
-                        <svg aria-hidden="true" class="w-10 h-10 text-black sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        <span class="sr-only">Next</span>
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- end of services reviews -->
-    <!-- services staff/employees -->
-    <div class="h-full bg-gray-100">
-        <div class="flex flex-col gap-6 justify-start p-28">
-            <h1 class="text-blue-500 font-bold text-lg">Meet Our Caregraver Family</h1>
-            <h1 class="font-bold text-5xl">Lorem ipsum dolor, sit amet.</h1>
-            <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Facilis iste dicta assumenda natus nostrum minima minus</p>
-            <!-- slider container (employees) -->
-            <div id="indicators-carousel" class="relative w-full mt-5" data-carousel="static">
-                <!-- Carousel wrapper -->
-                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                    <!-- Item 1 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                        <img src="../assets/images/emp-group-1.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="../assets/images/emp-group-2.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="../assets/images/emp-group-3.png" class="absolute block w-5/6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                </div>
-                <!-- Slider indicators -->
-                <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                </div>
-                <!-- Slider controls -->
-                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-full sm:w-10 sm:h-10 hover:bg-gray-400 duration-150 group-focus:outline-none">
-                        <svg aria-hidden="true" class="w-10 h-10 text-black sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                        <span class="sr-only">Previous</span>
-                    </span>
-                </button>
-                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span class="inline-flex items-center justify-center w-20 h-20 rounded-full sm:w-10 sm:h-10 hover:bg-gray-400 duration-150 group-focus:outline-none">
-                        <svg aria-hidden="true" class="w-10 h-10 text-black sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        <span class="sr-only">Next</span>
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- end of services staff -->
+    <!--end of services section  -->    
     <!-- grave explorer -->
     <div class="h-full" id="explorer">
         <div class="flex flex-col gap-6 justify-start p-28">
@@ -261,13 +142,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
             <h1 class="font-bold text-5xl">Cemetery Explorer</h1>
             <p class="text-gray-400 text-sm">The Cemetery Explorer is a powerful tool that displays all the available and occupied grave sites.
             <br>Click on a grave site to proceed to the grave site application form.</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <div id="map" style="height: 400px; width: 100%; border: 1px solid black;"></div>
             <!-- slider -->
             <div class="flex justify-center items-end">
                 <a href="grave-explorer.php" class="bg-blue-500 text-white font-semibold p-5 rounded-md hover:bg-cyan-300 duration-150" type="button">Explore Map</a>
@@ -276,46 +151,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
     </div>
     <!-- end of grave explorer -->
     <!-- contact us section -->
-    <div class="h-full bg-gray-100" id="contact">
-        <div class="flex flex-col gap-6 justify-start p-28">
-            <h1 class="text-blue-500 font-bold text-lg">Contact Us</h1>
-            <h1 class="font-bold text-5xl">We're here for you</h1>
-            <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Facilis iste dicta assumenda natus nostrum minima minus</p>
-            <!-- contact us form -->
-            <div class="flex flex-row justify-between bg-white p-10 shadow-lg">
-                <!-- div 1 -->
-                <div class="flex flex-col p-5">
-                    <h1 class="font-bold text-3xl border-b-2 border-b-blue-400 pb-5 w-1/2">How to Find Us</h1>
-                    <p class="text-gray-400 mt-5">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br> 
-                        Inventore nostrum aliquam quidem amet saepe possimus, eligendi, <br>
-                        quaerat sequi sit, consequuntur debitis quis quae perferendis ad? <br>
-                        Quidem veniam quam aliquam dolorum?
-                    </p>
-                    <h1 class="font-bold text-3xl mt-10 border-b-2 border-b-blue-400 pb-5 w-1/2">Our Location</h1>
-                    <p class="text-gray-400 mt-5">
-                        Sanciangko St, Cebu City, 6000 Cebu <br>
-                        Telephone: + 1 23 456 789 0 <br>
-                        Email: caregraver@uc.org    
-                    </p>
-                </div>
-                <!-- div 2 -->
-                <div class="p-5 w-1/2">
-                    <h1 class="font-bold text-3xl border-b-2 border-b-blue-400 pb-5 w-1/2">Get in Touch</h1>
-                    <form class="flex flex-col gap-3 mt-5 relative" action="">
-                        <label class="font-semibold" for="name">Name</label>
-                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="name" required />
-                        <label class="font-semibold" for="emailOrPhoneNumber">Email/Phone number</label>
-                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="emailOrPhoneNumber" required>
-                        <label class="font-semibold" for="help">What can we help you with?</label>
-                        <input class="border-0 border-b-2 border-gray-200 p-0 pr-3 pt-3 outline-none focus:ring-0 focus:border-gray-200" type="text" id="help" />
-                        <input type="submit" class="absolute top-64 xl:top-64 right-1 bg-blue-500 text-white px-5 py-3 rounded-md w-1/4 mt-3 hover:cursor-pointer hover:bg-cyan-300 duration-150">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    
     <!-- end of contact us section -->
     <!-- footer -->
     <div class="flex flex-row justify-evenly gap-10 h-1/2 py-20 px-28">
@@ -361,10 +197,11 @@ $loggedInUser=$_SESSION["loggedInUser"];
         <img class="h-3 w-3" src="../assets/icons/copyright.png" alt="copyright">
         <h1 class="text-center font-semibold text-gray-400">All Rights Reserved 2023</h1>
     </div>  
-    
     <!-- end of footer -->  
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/user-menu.js"></script>
+    <script src="../javascript/map-homepage.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8BUuSDeRsrMGCh07tzXoW7UhCr-A2ESI&callback=initMap"></script>
 </body>
 </html>
