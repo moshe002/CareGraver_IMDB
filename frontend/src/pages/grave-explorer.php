@@ -22,36 +22,46 @@
 
 </head>
 <body>
-<!-- map div -->
-    <div class="flex flex-col relative justify-center items-center h-full">
-        <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/navbar.php' ?>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="border-2 border-green-500" id="map"></div>
+    <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/navbar.php' ?>
+    <!-- map div -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- container of map and sidebar -->
+    <div id="container">
+        <div id="map" class="border-2 duration-200"></div>
         <!-- sidebar -->
-        <div class="flex flex-col justify-center items-center absolute right-0 h-min w-96 p-3 border-2 border-blue-300" id="sidebar">
-            <div class="flex flex-col gap-3 relative text-black text-center border-2 border-red-500">
+        <div id="sidebar" class="hidden flex-col border-2 border-green-400 absolute top-24 right-0 w-0 h-full justify-center items-center z-10 duration-200">
+            <div class="flex flex-col border-2 border-blue-400 justify-center items-center relative gap-3 h-full">
                 <button 
-                class="absolute right-0"
-                onclick="(function(){
-                    document.getElementById('sidebar').style.display = 'none';
-                })();">&#10006;</button>
+                    class="absolute top-5 right-1"
+                    onclick="(function(){
+                        document.getElementById('sidebar').style.display = 'none';
+                        document.getElementById('map').style.width = '100%';
+                    })();">&#10006;
+                </button>
                 <br>
-                <div>
-                    <input class="border-2 p-2" type="search">
-                    <button>search_icon</button>
+                <br>
+                <br>
+                <div class="flex justify-center items-center border-2 rounded-md">
+                    <input class="outline-none p-2" type="search">
+                    <button class="rounded-md p-2.5 bg-blue-500">
+                        <img class="w-5 h-5" src="../assets//icons//search_icon.png" alt="search_icon">
+                    </button>
                 </div>
-                <h1>Status: <b>Available</b></h1>
-                <h1>Status: <b>Available</b></h1>
-                <h1>Status: <b>Available</b></h1>
-                <h1>Status: <b>Available</b></h1>
-                <h1>Status: <b>Available</b></h1>
-                <button>Reserve Now</button>
+                <h1 class="p-2 border-b-2">Status: <b>Available</b></h1>
+                <h1 class="p-2 border-b-2">Status: <b>Available</b></h1>
+                <h1 class="p-2 border-b-2">Status: <b>Available</b></h1>
+                <h1 class="p-2 border-b-2">Status: <b>Available</b></h1>
+                <h1 class="p-2 border-b-2">Status: <b>Available</b></h1>
+                <br>
+                <div class="flex justify-center">
+                    <button class="bg-blue-500 text-white p-2 w-1/2 font-semibold rounded-md">Reserve Now</button>
+                </div>
                 <h3 id="grave_id">test</h3>
             </div>
-        </div>  
+        </div> 
     </div>
     <script>
         function initMap() { //google maps initialize, asa ang coordinates, unsay style sa map
@@ -94,6 +104,8 @@
                     google.maps.event.addListener(rectangle, 'click', function(event) {
                         //alert('You clicked on ' + grave["graveID"]);
                         document.getElementById('sidebar').style.display = 'flex';
+                        document.getElementById('sidebar').style.width = '27%';
+                        document.getElementById('map').style.width = '73%';
                         document.getElementById('grave_id').innerHTML = grave["graveID"];
                     });
             });
