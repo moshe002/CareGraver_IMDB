@@ -19,7 +19,7 @@
 <body class="p-5 font-poppins">
     <h1 class="text-2xl font-bold">CareGraver</h1>
     <!-- parent div -->
-    <div class="flex flex-col sm:flex-row justify-evenly mt-10">
+    <div class="flex flex-col sm:flex-row justify-evenly items-center mt-10">
         <!-- text div -->
         <div class="flex flex-col text-left p-3 pt-20">
             <h1 class="text-3xl font-semibold"><b>Sign in to</b><br>
@@ -38,7 +38,7 @@
             <?php  if($curError == "logoutsuccess") echo '<p class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">Logged out successfully<br></p>';
                     elseif($curError == "1") echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">We couldn`t find an account with that email address or username.<br></p>';
                     elseif($curError == "2") echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">The password you entered is incorrect. Please try again.<br></p>';
-                ?>
+            ?>
                 <input
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="text" id="loginfo" placeholder="Enter email or username" name="loginfo" required>
