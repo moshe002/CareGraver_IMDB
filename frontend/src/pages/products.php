@@ -167,6 +167,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
     <!--end of products section  -->
