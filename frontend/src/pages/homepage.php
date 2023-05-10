@@ -150,9 +150,6 @@ $loggedInUser=$_SESSION["loggedInUser"];
         </div>
     </div>
     <!-- end of grave explorer -->
-    <!-- contact us section -->
-    
-    <!-- end of contact us section -->
     <!-- footer -->
     <div class="flex flex-row justify-evenly gap-10 h-1/2 py-20 px-28">
         <div class="flex flex-col gap-5">

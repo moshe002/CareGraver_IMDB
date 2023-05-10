@@ -1,6 +1,6 @@
 <?php
     echo '<!-- navbar -->
-    <div id="navbar" class="flex flex-row top-0 absolute justify-between items-center w-full bg-white shadow-2xl p-5 duration-150 opacity-80 z-50">
+    <div id="navbar" class="flex flex-row top-0 absolute justify-between items-center w-full bg-white shadow-2xl p-5 duration-150 opacity-100 z-50">
         <div class="flex justify-start ml-24 items-center gap-24">
             <h1 class="font-bold text-2xl">CareGraver</h1>
             <nav class="flex gap-10 font-semibold" id="topnav">

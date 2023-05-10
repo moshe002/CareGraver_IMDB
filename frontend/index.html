@@ -180,19 +180,13 @@
     </div>
     <!-- end of services staff -->
     <!-- grave explorer -->
-    <div class="h-full bg-white" id="explorer">
+    <div class="h-full" id="explorer">
         <div class="flex flex-col gap-6 justify-start p-28">
             <h1 class="text-blue-500 font-bold text-lg">Take a tour on our cemetery</h1>
             <h1 class="font-bold text-5xl">Cemetery Explorer</h1>
             <p class="text-gray-400 text-sm">The Cemetery Explorer is a powerful tool that displays all the available and occupied grave sites.
             <br>Click on a grave site to proceed to the grave site application form.</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <div id="map" style="height: 400px; width: 100%; border: 1px solid black;"></div>
             <!-- slider -->
             <div class="flex justify-center items-end">
                 <a href="src/pages/login.php" class="bg-blue-500 text-white font-semibold p-5 rounded-md hover:bg-cyan-300 duration-150" type="button">Explore Map</a>
@@ -289,5 +283,7 @@
     <script src="src/javascript/navbar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script src="src/javascript/verification.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8BUuSDeRsrMGCh07tzXoW7UhCr-A2ESI&callback=initMap"></script>
+    <script src="src/javascript/map-homepage.js"></script>
 </body>
 </html>
