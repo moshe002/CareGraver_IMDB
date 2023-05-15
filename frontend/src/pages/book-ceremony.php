@@ -34,13 +34,13 @@
                         <label class="font-semibold text-base 2xl:text-2xl" for="date">Internment Schedule</label>
                         <br>
                         <div class="flex flex-row justify-between">
-                            <div class="">
+                            <div class="border-b-2">
                                 <label for="date_ceremony">Date:&nbsp;</label>
-                                <input class="p-2 border-b-2 focus:border-gray-400 duration-150 outline-none" type="date" id="date_ceremony" required>
+                                <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="date_ceremony" required>
                             </div>
-                            <div class="">
+                            <div class="border-b-2">
                                 <label for="time_ceremony">Time:&nbsp;</label>
-                                <input class="p-2 border-b-2 focus:border-gray-400 duration-150 outline-none" type="time" id="time_ceremony" required>
+                                <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="time" id="time_ceremony" required>
                             </div>
                         </div>
                     </div> 
