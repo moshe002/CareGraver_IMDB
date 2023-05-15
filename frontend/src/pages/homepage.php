@@ -23,18 +23,19 @@ $loggedInUser=$_SESSION["loggedInUser"];
     <link rel="stylesheet" href="../css/chatbox.css">
     <script src="../javascript/chatbox.js"></script>
     <script src="../javascript/scroll.js"></script>
+    <script src="../javascript/navbar.js"></script>
 </head>
 <body class="scroll-smooth font-montserrat">
     <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/chatbox.php' ?>
     <div id="home" class="relative bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center" style="background-attachment: fixed;">
     <!-- navbar -->
         <header>
-            <div id="navbar" class="wrapHead flex flex-row fixed justify-between items-center w-full bg-white shadow-2xl p-5 duration-150 opacity-60 z-50">
+            <div id="navbar" class="wrapHead flex flex-row fixed justify-between items-center w-full bg-white shadow-2xl p-5 duration-150 z-50">
                 <div class="flex justify-start ml-24 items-center gap-24">
                     <h1 class="font-bold text-2xl">CareGraver</h1>
                     <nav class="flex gap-10 font-semibold" id="topnav">
                         <a class="scroll duration-150" href="#home">Home</a>
-                        <a class="scroll duration-150" href="#service">Reserve</a>
+                        <a class="scroll duration-150" href="#service">Burial Ceremony</a>
                         <a class="scroll duration-150" href="#explorer">Explorer</a>
                         <a type="button" class="scroll duration-150 hover:cursor-pointer" onclick="(function(){
                             window.location.href = 'contact-page.php';
@@ -116,19 +117,19 @@ $loggedInUser=$_SESSION["loggedInUser"];
             <!-- services ehe uwu  -->
             <div class="flex flex-col gap-5">
                 <div class="flex flex-row shadow-lg">
-                    <img src="../assets/images/products.png" alt="products_1">
+                    <img src="../assets/images/burial_ceremony_1.png" alt="burial_cere_1">
                     <div class="flex flex-col justify-start gap-5 p-10">
-                        <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Products</h1>
+                        <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Christian funeral Prayer</h1>
                         <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
-                        <button onClick="location.href='products.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
+                        <button onClick="location.href='book-ceremony.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Book Now</button>
                     </div>
                 </div>
                 <div class="flex flex-row shadow-lg">
-                    <img src="../assets/images/services_1.png" alt="service_2">
+                    <img src="../assets/images/burial_ceremony_2.png" alt="burial_cere_2">
                     <div class="flex flex-col justify-start gap-5 p-10">
-                        <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Services</h1>
+                        <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Non-religious funeral blessing</h1>
                         <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
-                        <button onClick="location.href='services.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Know More</button>
+                        <button onClick="location.href='book-ceremony.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -195,7 +196,6 @@ $loggedInUser=$_SESSION["loggedInUser"];
         <h1 class="text-center font-semibold text-gray-400">All Rights Reserved 2023</h1>
     </div>  
     <!-- end of footer -->  
-    <script src="../javascript/navbar.js"></script>
     <script src="../javascript/user-menu.js"></script>
     <script src="../javascript/map-homepage.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
