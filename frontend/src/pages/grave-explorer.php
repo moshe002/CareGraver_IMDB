@@ -21,26 +21,11 @@
             height: 100vh;
             width: 100%; 
         }
-        /* #floating-panel {
-            position: absolute;
-            top: 10px;
-            left: 25%;
-            z-index: 5;
-            background-color: #fff;
-            padding: 5px;
-            border: 1px solid #999;
-            text-align: center;
-            font-family: 'Roboto','sans-serif';
-            line-height: 30px;
-            padding-left: 10px;
-        } */
     </style>
 </head>
 <body>
-    <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/navbar.php';
-    ?>
+    <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/navbar.php';?>
 
-    
     <!-- map div -->
     <br>
     <br>
@@ -133,21 +118,21 @@
                 &nbsp;
                 <h1><b id="lotNo"></b></h1>
             </div>
-            <div class="hidden justify-center w-full border-2">
-                <img class="w-20 h-20" src="../assets//images//tombstone.png" alt="tombstone">
+            <div id="graveImageT" class="justify-center w-full border-2" style="display:none">
+                <img id="graveImage" class="w-20 h-20" alt="tombstone">
             </div>
-            <div class="hidden p-2 border-b-2 w-full">
+            <div id="graveClassT" style="display:none" class="p-2 border-b-2 w-full">
                 <h1>Grave Classification:</h1>
                 &nbsp;
                 <h1><b id="graveClass"></b></h1>
             </div>
-            <div class="hidden p-2 border-b-2 w-full">
+            <div id="priceT" style="display:none" class="p-2 border-b-2 w-full">
                 <h1>Price:</h1>
                 <h1><b id="price">&nbsp;
                 </b></h1>
             </div>
             <br>
-            <div class="hidden justify-center w-full">
+            <div id="buttonAvailableT" style="display:none" class="justify-center w-full">
                 <!-- onclick open modal -->
                 <button onclick="(function(){
                     document.getElementById('payment_modal').style.display = 'flex';
@@ -180,9 +165,6 @@
     <!-- from javascript grave id click by user, process here at php get the details from db -->
     <script src="../javascript/user-menu.js"></script>
     <script src="../javascript/googlemap.js"></script>
-    
-    
-    
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8BUuSDeRsrMGCh07tzXoW7UhCr-A2ESI&callback=initMap"></script>
 </body>
 </html>
