@@ -26,7 +26,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
     <script src="../javascript/navbar.js"></script>
 </head>
 <body class="scroll-smooth font-montserrat">
-    <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/chatbox.php' ?>
+    <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/chatbox.html' ?>
     <div id="home" class="relative bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center" style="background-attachment: fixed;">
     <!-- navbar -->
         <header>
