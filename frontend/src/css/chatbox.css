@@ -49,7 +49,7 @@
       display: none;
   }   
   .chat-box {
-    display:none;
+    display:block;
     background: #efefef;
     position:fixed;
     z-index: 100;
