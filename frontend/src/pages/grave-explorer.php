@@ -170,7 +170,6 @@
         </div>
         <!-- end of reserve modal -->
     </div>
-<<<<<<< HEAD
     <script>
         function initMap() { //google maps initialize, asa ang coordinates, unsay style sa map
             var map = new google.maps.Map(document.getElementById("map"), {
@@ -241,9 +240,6 @@
         }
     </script>
     <script src="../javascript//online-payment.js"></script>
-=======
-    <!-- from javascript grave id click by user, process here at php get the details from db -->
->>>>>>> 1af0aedeb75c5374e181e09bf5850533476cf2f3
     <script src="../javascript/user-menu.js"></script>
     <script src="../javascript/googlemap.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8BUuSDeRsrMGCh07tzXoW7UhCr-A2ESI&callback=initMap"></script>

@@ -23,9 +23,8 @@
             <div class="flex flex-col items-start justify-center py-5 px-10 w-1/2">
                 <h1 class="font-bold text-3xl border-b-4 pb-5 border-b-blue-400">Book a Burial Ceremony</h1>
                 <form 
-                    class="flex flex-col relative gap-10 2xl:gap-10 h-full w-11/12 mt-2 2xl:mt-10" 
-                    action=""
-                    method="">
+                    id="payment_form"
+                    class="flex flex-col relative gap-10 2xl:gap-10 h-full w-11/12 mt-2 2xl:mt-10">
                     <!-- name of deceased -->
                     <div>
                         <label class="font-semibold text-base 2xl:text-2xl" for="name_of_deceased">Name of Deceased</label>
@@ -62,13 +61,11 @@
                         <br>
                         <input class="focus:border-b-gray-400 duration-150 px-2 py-1 border-b-2 w-full outline-none" type="text" id="additional_notes" required>
                     </div>
-                    <button class="absolute -bottom-5 2xl:bottom-10 right-0 w-36 bg-blue-400 focus:outline-blue-300 rounded-md p-2 2xl:p-3 text-center text-white text-base 2xl:text-lg hover:cursor-pointer opacity-75 hover:opacity-100 duration-150" 
-                        type="button" 
-                        onclick="(function(){
-                        document.getElementById('payment_modal').style.display = 'flex';
-                    })();"
-                    >Submit
-                    </button>
+                    <input 
+                        class="absolute -bottom-5 2xl:bottom-10 right-0 w-36 bg-blue-400 focus:outline-blue-300 rounded-md p-2 2xl:p-3 text-center text-white text-base 2xl:text-lg hover:cursor-pointer opacity-75 hover:opacity-100 duration-150" 
+                        type="submit" 
+                        value="Submit"
+                    />
                 </form>
             </div>
             <div>
@@ -105,7 +102,7 @@
         </div>
         <!-- end of payment modal -->
     </div>
-    <script src="../javascript//online-payment.js"></script>
+    <script src="../javascript/online-payment.js"></script>
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/user-menu.js"></script>
 </body>

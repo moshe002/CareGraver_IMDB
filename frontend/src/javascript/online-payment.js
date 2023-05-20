@@ -1,3 +1,16 @@
+
+const payment_form = document.getElementById('payment_form');
+payment_form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    showPaymentModal();
+});
+
+function showPaymentModal() {
+    const paymentModal = document.getElementById('payment_modal');
+    paymentModal.style.display = 'flex';
+};
+
+
 // display the blue check logo when clicked
 const payPal_btn = document.getElementById('paypal-btn');
 payPal_btn.addEventListener('focus', function() {
