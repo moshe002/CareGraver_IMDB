@@ -14,28 +14,18 @@
     crossorigin="anonymous"></script> -->
     <title>Grave Explorer</title>
     <!-- style for map div -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
     <style>
         #map {
             height: 100vh;
             width: 100%; 
         }
-        /* #floating-panel {
-            position: absolute;
-            top: 10px;
-            left: 25%;
-            z-index: 5;
-            background-color: #fff;
-            padding: 5px;
-            border: 1px solid #999;
-            text-align: center;
-            font-family: 'Roboto','sans-serif';
-            line-height: 30px;
-            padding-left: 10px;
-        } */
     </style>
 </head>
 <body>
-    <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/navbar.php' ?>
+    <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/navbar.php';?>
+
     <!-- map div -->
     <br>
     <br>
@@ -81,12 +71,12 @@
             </div>
         </div>
         <!-- end of legend -->
-        <!-- sidebar available -->
-        <div id="sidebar-available" class="hidden flex-col justify-center items-center gap-16 xl:gap-y-3 p-5 absolute top-20 right-0 w-0 h-full z-10 duration-200">
+        <!-- sidebar all -->
+        <div id="sidebar" class="hidden flex-col justify-center items-center gap-16 xl:gap-y-3 p-5 absolute top-20 right-0 w-0 h-full z-10 duration-200">
             <button 
                 class="absolute top-5 right-1"
                 onclick="(function(){
-                    document.getElementById('sidebar-available').style.display = 'none';
+                    document.getElementById('sidebar').style.display = 'none';
                     document.getElementById('map').style.width = '100%';
                 })();">&#10006;
             </button>    
@@ -98,132 +88,58 @@
                     <img class="w-5 h-5" src="../assets//icons//search_icon.png" alt="search_icon">
                 </button>
             </div>
-            <div class="flex p-2 border-b-2 w-full">
+            <div class="flex p-2 border-b-2 w-full text-sm">
                 <h1>Status:</h1>
                 &nbsp;
-                <h1><b>Available</b></h1>
+                <h1><b id="status"></b></h1>
             </div>
-            <div class="flex p-2 border-b-2 w-full">
+            <div id="nameT" class="p-2 border-b-2 w-full text-sm" style="display:none">
+                <h1>Deceased Name:</h1>
+                &nbsp;
+                <h1><b id="name"></b></h1>
+            </div>
+            <div id="dobT" style="display:none" class="p-2 border-b-2 w-full text-sm">
+                <h1>Date of Birth:</h1>
+                &nbsp;
+                <h1><b id="dob"></b></h1>
+            </div>
+            <div id="dodT" style="display:none" class="p-2 border-b-2 w-full text-sm">
+                <h1>Date of Death:</h1>
+                &nbsp;
+                <h1><b id="dod"></b></h1>
+            </div>
+            <div class="flex p-2 border-b-2 w-full text-sm">
                 <h1>Block Number:</h1>
                 &nbsp;
-                <h1><b>2</b></h1>
+                <h1><b id="blockNo"></b></h1>
             </div>
-            <div class="flex p-2 border-b-2 w-full">
-                <h1>Lot Number:</h1>
+            <div class="flex p-2 border-b-2 w-full text-sm">
+                <h1>Lot Number</h1>
                 &nbsp;
-                <h1><b>59</b></h1>
+                <h1><b id="lotNo"></b></h1>
             </div>
-            <div class="flex p-2 border-b-2 w-full">
+            <div id="graveImageT" class="justify-center w-full border-2" style="display:none">
+                <img id="graveImage" class="w-20 h-20" alt="tombstone">
+            </div>
+            <div id="graveClassT" style="display:none" class="p-2 border-b-2 w-full">
                 <h1>Grave Classification:</h1>
                 &nbsp;
-                <h1><b>Garden Niche</b></h1>
+                <h1><b id="graveClass"></b></h1>
             </div>
-            <div class="flex p-2 border-b-2 w-full">
+            <div id="priceT" style="display:none" class="p-2 border-b-2 w-full">
                 <h1>Price:</h1>
-                &nbsp;
-                <h1><b>Php 20,000</b></h1>
+                <h1><b id="price">&nbsp;
+                </b></h1>
             </div>
             <br>
-            <div class="flex justify-center w-full">
+            <div id="buttonAvailableT" style="display:none" class="justify-center w-full">
                 <!-- onclick open modal -->
                 <button onclick="(function(){
                     document.getElementById('payment_modal').style.display = 'flex';
                 })();" class="bg-blue-500 text-white p-2 w-1/2 font-semibold rounded-md">Reserve Now</button>
             </div>
-            <h3 id="grave_id">test</h3>
-        </div> 
-        <!-- end of sidebar available -->
-        <!-- sidebar occupied -->
-        <div id="sidebar-occupied" class="hidden flex-col justify-center items-center gap-16 xl:gap-y-3 p-5 absolute top-20 right-0 w-0 h-full z-10 duration-200">
-            <button 
-                class="absolute top-5 right-1"
-                onclick="(function(){
-                    document.getElementById('sidebar-occupied').style.display = 'none';
-                    document.getElementById('map').style.width = '100%';
-                })();">&#10006;
-            </button>    
-            <br>
-            <br>
-            <div class="flex w-3/4 justify-center items-center rounded-md border-2">
-                <input class="outline-none p-2 w-full rounded-md focus:outline-blue-400 duration-150" type="search">
-                <button class="rounded-md p-2.5 bg-blue-500">
-                    <img class="w-5 h-5" src="../assets//icons//search_icon.png" alt="search_icon">
-                </button>
-            </div>
-            <div class="flex p-2 border-b-2 w-full text-sm">
-                <h1>Status:</h1>
-                &nbsp;
-                <h1><b>Occupied</b></h1>
-            </div>
-            <div class="flex p-2 border-b-2 w-full text-sm">
-                <h1>Name:</h1>
-                &nbsp;
-                <h1><b>Dennis F. Rosion Sr.</b></h1>
-            </div>
-            <div class="flex p-2 border-b-2 w-full text-sm">
-                <h1>Date of Birth:</h1>
-                &nbsp;
-                <h1><b>March 28, 1959</b></h1>
-            </div>
-            <div class="flex p-2 border-b-2 w-full text-sm">
-                <h1>Date of Death:</h1>
-                &nbsp;
-                <h1><b>November 13, 2009</b></h1>
-            </div>
-            <div class="flex p-2 border-b-2 w-full text-sm">
-                <h1>Block Number:</h1>
-                &nbsp;
-                <h1><b>2</b></h1>
-            </div>
-            <div class="flex p-2 border-b-2 w-full text-sm">
-                <h1>Lot Number</h1>
-                &nbsp;
-                <h1><b>59</b></h1>
-            </div>
-            <div class="flex justify-center w-full border-2">
-                <img class="w-20 h-20" src="../assets//images//tombstone.png" alt="tombstone">
-            </div>
         </div> 
         <!-- end of sidebar occupied -->
-        <!-- sidebar reserved -->
-        <div id="sidebar-reserved" class="hidden flex-col justify-center items-center gap-16 xl:gap-y-3 p-5 absolute top-20 right-0 w-0 h-full z-10 duration-200">
-            <button 
-                class="absolute top-5 right-1"
-                onclick="(function(){
-                    document.getElementById('sidebar-reserved').style.display = 'none';
-                    document.getElementById('map').style.width = '100%';
-                })();">&#10006;
-            </button>    
-            <br>
-            <br>
-            <div class="flex w-3/4 justify-center items-center rounded-md border-2">
-                <input class="outline-none p-2 w-full rounded-md focus:outline-blue-400 duration-150" type="search">
-                <button class="rounded-md p-2.5 bg-blue-500">
-                    <img class="w-5 h-5" src="../assets//icons//search_icon.png" alt="search_icon">
-                </button>
-            </div>
-            <div class="flex p-2 border-b-2 w-full">
-                <h1>Status:</h1>
-                &nbsp;
-                <h1><b>Reserved</b></h1>
-            </div>
-            <div class="flex p-2 border-b-2 w-full">
-                <h1>Block Number:</h1>
-                &nbsp;
-                <h1><b>2</b></h1>
-            </div>
-            <div class="flex p-2 border-b-2 w-full">
-                <h1>Lot Number:</h1>
-                &nbsp;
-                <h1><b>59</b></h1>
-            </div>
-            <div class="flex p-2 border-b-2 w-full">
-                <h1>Grave Classification:</h1>
-                &nbsp;
-                <h1><b>Garden Niche</b></h1>
-            </div>
-        </div> 
-        <!-- end of sidebar reserved -->
         <!-- modal on reserve -->
         <div id="payment_modal" class="hidden justify-center items-center h-screen w-full left-0 right-0 mr-auto ml-auto z-50 fixed inset-0 overflow-y-auto backdrop-filter backdrop-blur-sm">
             <div id="payment_content" class="flex flex-col justify-center items-center relative bg-white p-10 h-min w-80 shadow-2xl rounded-md">
@@ -254,6 +170,7 @@
         </div>
         <!-- end of reserve modal -->
     </div>
+<<<<<<< HEAD
     <script>
         function initMap() { //google maps initialize, asa ang coordinates, unsay style sa map
             var map = new google.maps.Map(document.getElementById("map"), {
@@ -324,7 +241,11 @@
         }
     </script>
     <script src="../javascript//online-payment.js"></script>
+=======
+    <!-- from javascript grave id click by user, process here at php get the details from db -->
+>>>>>>> 1af0aedeb75c5374e181e09bf5850533476cf2f3
     <script src="../javascript/user-menu.js"></script>
+    <script src="../javascript/googlemap.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8BUuSDeRsrMGCh07tzXoW7UhCr-A2ESI&callback=initMap"></script>
 </body>
 </html>
