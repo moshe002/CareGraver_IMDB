@@ -226,7 +226,7 @@
         <!-- end of sidebar reserved -->
         <!-- modal on reserve -->
         <div id="payment_modal" class="hidden justify-center items-center h-screen w-full left-0 right-0 mr-auto ml-auto z-50 fixed inset-0 overflow-y-auto backdrop-filter backdrop-blur-sm">
-            <div class="flex flex-col justify-center items-center relative bg-white p-10 h-min w-80 shadow-2xl rounded-md">
+            <div id="payment_content" class="flex flex-col justify-center items-center relative bg-white p-10 h-min w-80 shadow-2xl rounded-md">
                 <button 
                 class="absolute top-5 right-5"
                 onclick="(function(){
@@ -235,12 +235,20 @@
                 <br>
                 <p class="text-gray-400 text-base font-semibold">To continue your reservation kindly choose your mode of payment:</p>
                 <br>
-                <button>
-                    <img class="w-48 h-20" src="../assets//icons//paypal.png" alt="paypal">
+                <button id="gcash-btn" class="flex flex-row justify-between items-center rounded-md w-60 border-2 focus:border-2 focus:border-blue-400">
+                    <div class="flex items-center p-0">
+                        <img class="w-16 h-16" src="../assets//icons//Gcash_icon.png" alt="gcash">
+                        <h1>Gcash</h1>
+                    </div>
+                    <img id="blue-check-icon1" class="invisible duration-150 mr-2" src="../assets//icons//blue_check_icon.png" alt="blue_check">
                 </button>
                 <br>
-                <button>
-                    <img class="w-48 h-20" src="../assets//icons//gcash.png" alt="gcash">
+                <button id="paypal-btn" class="flex flex-row justify-between items-center py-1 rounded-md w-60 border-2 focus:border-2 focus:border-blue-400">
+                    <div class="flex gap-1 items-center">
+                        <img src="../assets//icons//PayPal_icon.png" alt="paypal">
+                        <h1>PayPal</h1>
+                    </div>
+                    <img id="blue-check-icon2" class="invisible duration-150 mr-2" src="../assets//icons//blue_check_icon.png" alt="blue_check">
                 </button>
             </div>
         </div>
@@ -315,6 +323,7 @@
             });
         }
     </script>
+    <script src="../javascript//online-payment.js"></script>
     <script src="../javascript/user-menu.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8BUuSDeRsrMGCh07tzXoW7UhCr-A2ESI&callback=initMap"></script>
 </body>

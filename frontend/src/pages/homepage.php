@@ -111,7 +111,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
     <!-- services section -->
     <div class="h-full bg-gray-100" id="service">
         <div class="flex flex-col gap-6 justify-start p-28">
-            <h1 class="text-blue-500 font-bold text-lg">Our Products & Services</h1>
+            <h1 class="text-blue-500 font-bold text-lg">Our Burial Ceremony</h1>
             <h1 class="font-bold text-5xl">Lorem ipsum dolor, sit amet.</h1>
             <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Facilis iste dicta assumenda natus nostrum minima minus</p>
             <!-- services ehe uwu  -->

@@ -22,7 +22,10 @@
         <div class="flex flex-row h-screen justify-between p-3 shadow-2xl">
             <div class="flex flex-col items-start justify-center py-5 px-10 w-1/2">
                 <h1 class="font-bold text-3xl border-b-4 pb-5 border-b-blue-400">Book a Burial Ceremony</h1>
-                <form class="flex flex-col relative gap-10 2xl:gap-10 h-full w-11/12 mt-2 2xl:mt-10" action="">
+                <form 
+                    class="flex flex-col relative gap-10 2xl:gap-10 h-full w-11/12 mt-2 2xl:mt-10" 
+                    action=""
+                    method="">
                     <!-- name of deceased -->
                     <div>
                         <label class="font-semibold text-base 2xl:text-2xl" for="name_of_deceased">Name of Deceased</label>
@@ -59,16 +62,50 @@
                         <br>
                         <input class="focus:border-b-gray-400 duration-150 px-2 py-1 border-b-2 w-full outline-none" type="text" id="additional_notes" required>
                     </div>
-                    <input class="absolute -bottom-5 2xl:bottom-10 right-0 w-36 bg-blue-400 rounded-md p-2 2xl:p-3 text-center text-white text-base 2xl:text-lg hover:cursor-pointer opacity-75 hover:opacity-100 duration-150" 
-                        type="submit" 
-                        value="Submit" />
+                    <button class="absolute -bottom-5 2xl:bottom-10 right-0 w-36 bg-blue-400 focus:outline-blue-300 rounded-md p-2 2xl:p-3 text-center text-white text-base 2xl:text-lg hover:cursor-pointer opacity-75 hover:opacity-100 duration-150" 
+                        type="button" 
+                        onclick="(function(){
+                        document.getElementById('payment_modal').style.display = 'flex';
+                    })();"
+                    >Submit
+                    </button>
                 </form>
             </div>
             <div>
                 <img class="h-full" src="..//assets//images//book_ceremony_3.png" alt="book_ceremony_3">
             </div>
         </div> 
+        <!-- modal payment -->
+        <div id="payment_modal" class="hidden justify-center items-center h-screen w-full left-0 right-0 mr-auto ml-auto z-50 fixed inset-0 overflow-y-auto backdrop-filter backdrop-blur-sm">
+            <div id="payment_content" class="flex flex-col justify-center items-center relative bg-white mb-10 p-10 h-min w-80 shadow-2xl rounded-md">
+                <button 
+                class="absolute top-5 right-5"
+                onclick="(function(){
+                    document.getElementById('payment_modal').style.display = 'none';
+                })();">&#10006;</button>
+                <br>
+                <p class="text-gray-400 text-base font-semibold">To continue your reservation kindly choose your mode of payment:</p>
+                <br>
+                <button id="gcash-btn" class="flex flex-row justify-between items-center rounded-md w-60 border-2 focus:border-2 focus:border-blue-400">
+                    <div class="flex items-center p-0">
+                        <img class="w-16 h-16" src="../assets//icons//Gcash_icon.png" alt="gcash">
+                        <h1>Gcash</h1>
+                    </div>
+                    <img id="blue-check-icon1" class="invisible duration-150 mr-2" src="../assets//icons//blue_check_icon.png" alt="blue_check">
+                </button>
+                <br>
+                <button id="paypal-btn" class="flex flex-row justify-between items-center py-1 rounded-md w-60 border-2 focus:border-2 focus:border-blue-400">
+                    <div class="flex gap-1 items-center">
+                        <img src="../assets//icons//PayPal_icon.png" alt="paypal">
+                        <h1>PayPal</h1>
+                    </div>
+                    <img id="blue-check-icon2" class="invisible duration-150 mr-2" src="../assets//icons//blue_check_icon.png" alt="blue_check">
+                </button>
+            </div>
+        </div>
+        <!-- end of payment modal -->
     </div>
+    <script src="../javascript//online-payment.js"></script>
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/user-menu.js"></script>
 </body>
