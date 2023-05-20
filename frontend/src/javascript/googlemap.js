@@ -25,13 +25,13 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
             bounds: new google.maps.LatLngBounds(
                 new google.maps.LatLng(grave.lat - 0.00005, grave.lng - 0.00005),
                 new google.maps.LatLng(grave.lat + 0.00005, grave.lng + 0.00005)),
-                clickable: true,
-                fillColor: '#FF0000',
-                fillOpacity: 0.35,
-                strokeColor: '#FF0000',
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                map: map
+            clickable: true,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            map: map
         });// no need to edit this every addition of graves, automatic ra kay loop man (pero ari naka define ang colors)
 
         google.maps.event.addListener(rectangle, 'click', function() { 
@@ -50,12 +50,13 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                     var dateOfDeath = gravesiteResult['dateOfDeath'];
                     // var coordinates = gravesiteResult['graveCoordinates'];
                     // coordinates.split(",")
-                    var blockNo = gravesiteResult['graveCoordinates'];
-                    var lotNo = gravesiteResult['graveCoordinates'];
+                    var coordinate = gravesiteResult['graveCoordinates'].split(",");
+                    var blockNo = coordinate[0];
+                    var lotNo = coordinate[1];
+                    console.log(coordinate);
                     var graveImage = gravesiteResult['graveImage'];
                     var graveClassification = gravesiteResult['gravesiteClassification'];
-                    var gravePrice = gravesiteResult['price'];
-                    
+                    var gravePrice = gravesiteResult['price'];                    
                     
                     var nameHTML = document.getElementById('name');
                     nameHTML.textContent = name;
@@ -69,11 +70,24 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                     lotNoHTML.textContent = lotNo;
                     var graveImageHTML = document.getElementById('graveImage');
                     graveImageHTML.src = "../assets/gravesite-images/" + graveImage;
-                    var graveClassHTML = document.getElementById('graveClass');
-                    graveClassHTML.textContent = graveClassification;
                     var priceHTML = document.getElementById('price');
-                    priceHTML.textContent = gravePrice;
-                    // sqlResult
+                    priceHTML.textContent = gravePrice;                    
+                    
+                    switch(graveClassification){
+                        case "LL":
+                            var graveClassHTML = document.getElementById('graveClass');
+                            graveClassHTML.textContent = "Lawn Lot";
+                            break;
+                        case "FE":
+                            var graveClassHTML = document.getElementById('graveClass');
+                            graveClassHTML.textContent = "Family Estate";
+                            break;
+                        case "GN":
+                            var graveClassHTML = document.getElementById('graveClass');
+                            graveClassHTML.textContent = "Garden Niche";
+                            break;
+                        default:
+                    }
 
                     switch(status) {
                         case "O":
@@ -86,7 +100,7 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                             //dont display
                             document.getElementById('graveClassT').style.display = 'none';
                             document.getElementById('priceT').style.display = 'none';
-                            document.getElementById('buttonAvailable').style.display = 'none';
+                            document.getElementById('buttonAvailableT').style.display = 'none';
                             break;
                         case "R":
                             var statusHTML = document.getElementById('status');
@@ -97,23 +111,19 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                             document.getElementById('dobT').style.display = 'none';
                             document.getElementById('dodT').style.display = 'none';
                             document.getElementById('graveImageT').style.display = 'none';
-                            document.getElementById('graveClassT').style.display = 'none';
                             document.getElementById('priceT').style.display = 'none';
-                            document.getElementById('buttonAvailable').style.display = 'none';
+                            document.getElementById('buttonAvailableT').style.display = 'none';
                             break;
                         case "A":
                             var statusHTML = document.getElementById('status');
                             statusHTML.textContent = "Available";
                             document.getElementById('graveClassT').style.display = 'flex';
                             document.getElementById('priceT').style.display = 'flex';
-                            document.getElementById('buttonAvailable').style.display = 'flex';
+                            document.getElementById('buttonAvailableT').style.display = 'flex';
                             //dont display
-                            document.getElementById('graveClassT').style.display = 'none';
                             document.getElementById('nameT').style.display = 'none';
                             document.getElementById('dobT').style.display = 'none';
                             document.getElementById('dodT').style.display = 'none';
-                            document.getElementById('graveImageT').style.display = 'none';
-                            
                             break;
                         default:
                             // code block

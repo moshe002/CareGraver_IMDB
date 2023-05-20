@@ -25,7 +25,6 @@
 </head>
 <body>
     <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/navbar.php';?>
-
     <!-- map div -->
     <br>
     <br>
@@ -114,7 +113,7 @@
                 <h1><b id="blockNo"></b></h1>
             </div>
             <div class="flex p-2 border-b-2 w-full text-sm">
-                <h1>Lot Number</h1>
+                <h1>Lot Number:</h1>
                 &nbsp;
                 <h1><b id="lotNo"></b></h1>
             </div>
@@ -127,8 +126,8 @@
                 <h1><b id="graveClass"></b></h1>
             </div>
             <div id="priceT" style="display:none" class="p-2 border-b-2 w-full">
-                <h1>Price:</h1>
-                <h1><b id="price">&nbsp;
+                <h1>Price:</h1>&nbsp;
+                <h1><b id="price">;
                 </b></h1>
             </div>
             <br>
