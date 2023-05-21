@@ -2,25 +2,44 @@
     include('config.php');
     include('loginprocess.php');    
     $userLoggedIn = $_SESSION['loggedInUser'];
-    $senderUID = $userLoggedIn['userID'];
-    $receiveMessage = [];
-    //sending
+    $senderUID = $userLoggedIn['userID'];    
+    $allMessages = [];
+
+    //send message
     if (isset($_POST['message'])){
         $message = $_POST['message'];
-        $sql = mysqli_query($mysqli,"INSERT INTO `user_chat_message` (`senderUID`,`chatMessage`,`sentDate`) VALUES ('$senderUID','$message', current_timestamp())");    
+        $sql = mysqli_query($mysqli,"INSERT INTO `chat` (`senderUID`,`receiverUID`,`chatMessage`,`sentDate`) VALUES ('$senderUID','admin','$message', current_timestamp())");    
     }
     
-    //receiving
-    $sql = mysqli_query($mysqli,"SELECT * FROM `staff_chat_message` WHERE `receiverUID` = '$senderUID'");
-    if ($sql){
-        $results = mysqli_fetch_all($sql, MYSQLI_ASSOC);
+    //receiving all incoming
+    $sqlReceive = mysqli_query($mysqli,"SELECT * FROM `chat` WHERE `receiverUID` = '$senderUID'");
+    if ($sqlReceive){
+        $results = mysqli_fetch_all($sqlReceive, MYSQLI_ASSOC);
         foreach ($results as $result){  
-            array_push($receiveMessage, array("chatID" => $result['chatID'], "chatMessage" => $result['chatMessage']));
-        }        
-        echo json_encode($receiveMessage);
-    }
-    else{
-        echo "Connection Failure. Please refresh the page.";
+            array_push($allMessages, array("SentOrReceived" => "received", "chatID" => $result['chatID'], "chatMessage" => $result['chatMessage'], "chatTimestamp" => $result['sentDate']));
+        }
     }    
+    //all sent messages
+    $sqlSent = mysqli_query($mysqli,"SELECT * FROM `chat` WHERE `senderUID` = '$senderUID'");
+    if ($sqlSent){
+        $results = mysqli_fetch_all($sqlSent, MYSQLI_ASSOC);
+        foreach ($results as $result){ 
+            array_push($allMessages, array("SentOrReceived" => "sent","chatID" => $result['chatID'], "chatMessage" => $result['chatMessage'], "chatTimestamp" => $result['sentDate']));
+        }
+    }
+    //error handling
+    if ($sqlReceive == 'false' && $sqlSent == 'false'){
+        echo "Lost connection to the server. Please refresh the page.";
+    }
+    
+    function compareByTimestamp($a, $b) {
+        $timestampA = strtotime($a["chatTimestamp"]);
+        $timestampB = strtotime($b["chatTimestamp"]);
+    
+        return $timestampA - $timestampB;
+    }
+    
+    usort($allMessages, "compareByTimestamp");
+    echo json_encode($allMessages);
 
 ?>

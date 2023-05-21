@@ -42,22 +42,33 @@ function receiveMessage() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {    
     if (xhr.readyState === 4 && xhr.status === 200) {
-      var receivedMessages = JSON.parse(xhr.responseText);        
-      var container = document.getElementById("received-message");
-      receivedMessages.forEach(element => {
+      var allMessages = JSON.parse(xhr.responseText);   
+      console.log(allMessages);   
+      var receivedContainer = document.getElementById("received-area");
+      var sentContainer = document.getElementById("sent-area");
+      allMessages.forEach(element => {
         if (chatIDRendered.indexOf(element['chatID']) == -1){
-          var receivedMessage = document.createElement("div");
-          receivedMessage.id = "dynamicDiv";
-          receivedMessage.textContent  = element['chatMessage'];
-          container.appendChild(receivedMessage);
+          switch (element['SentOrReceived']) {
+            case "received":
+              var receivedMessage = document.createElement("div");
+              receivedMessage.id = "receive-msg";
+              receivedMessage.textContent  = element['chatMessage'];
+              receivedContainer.appendChild(receivedMessage);
+              break;            
+              case "sent":
+                var sentMessage = document.createElement("div");
+                sentMessage.id = "sent-msg";
+                sentMessage.textContent  = element['chatMessage'];
+                sentContainer.appendChild(sentMessage);
+              break;          
+            default:
+              break;
+          }          
           chatIDRendered.push(element['chatID']);
         }
         
-        console.log(chatIDRendered);
       });
-      // for (var i = 0; i < receivedMessages.length; i++) {
-        
-      // }
+      
       
     }
   };  
