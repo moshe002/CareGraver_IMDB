@@ -82,7 +82,7 @@
             <br>
             <br>
             <div class="flex w-3/4 justify-center items-center rounded-md border-2">
-                <input class="outline-none p-2 w-full rounded-md focus:outline-blue-400 duration-150" type="search">
+                <input class="outline-none p-2 w-full rounded-md focus:outline-blue-400 duration-150" type="search" placeholder="Search - blockNo, lotNo">
                 <button class="rounded-md p-2.5 bg-blue-500">
                     <img class="w-5 h-5" src="../assets//icons//search_icon.png" alt="search_icon">
                 </button>
@@ -116,10 +116,7 @@
                 <h1>Lot Number:</h1>
                 &nbsp;
                 <h1><b id="lotNo"></b></h1>
-            </div>
-            <div id="graveImageT" class="justify-center w-full border-2" style="display:none">
-                <img id="graveImage" class="w-20 h-20" alt="tombstone">
-            </div>
+            </div>            
             <div id="graveClassT" style="display:none" class="p-2 border-b-2 w-full">
                 <h1>Grave Classification:</h1>
                 &nbsp;
@@ -129,6 +126,9 @@
                 <h1>Price:</h1>&nbsp;
                 <h1><b id="price">;
                 </b></h1>
+            </div>
+            <div id="graveImageT" class="justify-center w-full border-2" style="display:none">
+                <img id="graveImage" class="w-20 h-20" alt="No Image Available">
             </div>
             <br>
             <div id="buttonAvailableT" style="display:none" class="justify-center w-full">
