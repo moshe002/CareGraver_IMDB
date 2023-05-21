@@ -383,114 +383,158 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
         e1, e2, e3, e4, e5, e6, e7, e8, e9, e10,
         f1, f2, f3, f4, f5, f6, f7, f8, f9, f10];
 
+
+    var graves= new google.maps.Polygon();
+    var strokeColor = "";
+    var fillColor = "";
+
     // Create a rectangle for each grave site/tombstone and add it to the map
     graveMapCoordinates.forEach(function(graveMapCoordinate) {
-        var graves = new google.maps.Polygon({
-            paths: graveMapCoordinate,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            clickable: true,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35,
-            map: map
-        });
-        google.maps.event.addListener(graves, 'click', function() {
-            // alert(graveMapCoordinate[0].graveID);
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '../pages/grave-explorer-process.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    gravesiteResult = JSON.parse(xhr.responseText);
-                    var status = gravesiteResult.availability;
-                    var name = gravesiteResult['nameOfDeceased'];
-                    var dateOfBirth = gravesiteResult['dateOfBirth'];
-                    var dateOfDeath = gravesiteResult['dateOfDeath'];
-                    var coordinate = gravesiteResult['graveCoordinates'].split(",");
-                    var blockNo = coordinate[0];
-                    var lotNo = coordinate[1];
-                    var graveImage = gravesiteResult['graveImage'];
-                    var graveClassification = gravesiteResult['gravesiteClassification'];
-                    var gravePrice = gravesiteResult['price'];                    
-                    
-                    var nameHTML = document.getElementById('name');
-                    nameHTML.textContent = name;
-                    var dobHTML = document.getElementById('dob');
-                    dobHTML.textContent = dateOfBirth;
-                    var dodHTML = document.getElementById('dod');
-                    dodHTML.textContent = dateOfDeath;
-                    var blockNoHTML = document.getElementById('blockNo');
-                    blockNoHTML.textContent = blockNo;
-                    var lotNoHTML = document.getElementById('lotNo');
-                    lotNoHTML.textContent = lotNo;
-                    var graveImageHTML = document.getElementById('graveImage');
-                    graveImageHTML.src = "../assets/gravesite-images/" + graveImage;
-                    var priceHTML = document.getElementById('price');
-                    priceHTML.textContent = gravePrice;                    
-                    
-                    switch(graveClassification){
-                        case "LL":
-                            var graveClassHTML = document.getElementById('graveClass');
-                            graveClassHTML.textContent = "Lawn Lot";
-                            break;
-                        case "FE":
-                            var graveClassHTML = document.getElementById('graveClass');
-                            graveClassHTML.textContent = "Family Estate";
-                            break;
-                        case "GN":
-                            var graveClassHTML = document.getElementById('graveClass');
-                            graveClassHTML.textContent = "Garden Niche";
-                            break;
-                        default:
-                    }
-
-                    switch(status) {
-                        case "O":
-                            var statusHTML = document.getElementById('status');
-                            statusHTML.textContent = "Occupied";
-                            document.getElementById('nameT').style.display = 'flex';
-                            document.getElementById('dobT').style.display = 'flex';
-                            document.getElementById('dodT').style.display = 'flex';
-                            document.getElementById('graveImageT').style.display = 'flex';
-                            //dont display
-                            document.getElementById('graveClassT').style.display = 'none';
-                            document.getElementById('priceT').style.display = 'none';
-                            document.getElementById('buttonAvailableT').style.display = 'none';
-                            break;
-                        case "R":
-                            var statusHTML = document.getElementById('status');
-                            statusHTML.textContent = "Reserved";
-                            document.getElementById('graveClassT').style.display = 'flex';
-                            //dont display
-                            document.getElementById('nameT').style.display = 'none';
-                            document.getElementById('dobT').style.display = 'none';
-                            document.getElementById('dodT').style.display = 'none';
-                            document.getElementById('graveImageT').style.display = 'none';
-                            document.getElementById('priceT').style.display = 'none';
-                            document.getElementById('buttonAvailableT').style.display = 'none';
-                            break;
-                        case "A":
-                            var statusHTML = document.getElementById('status');
-                            statusHTML.textContent = "Available";
-                            document.getElementById('graveClassT').style.display = 'flex';
-                            document.getElementById('priceT').style.display = 'flex';                                                        
-                            document.getElementById('graveImageT').style.display = 'flex';
-                            document.getElementById('buttonAvailableT').style.display = 'flex';
-                            //dont display
-                            document.getElementById('nameT').style.display = 'none';
-                            document.getElementById('dobT').style.display = 'none';
-                            document.getElementById('dodT').style.display = 'none';
-                            break;
-                        default:
-                            // code block
-                        }
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '../pages/grave-explorer-process.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                gravesiteResult = JSON.parse(xhr.responseText);
+                var status = gravesiteResult.availability;
+                var graveClassification = gravesiteResult['gravesiteClassification'];
+                switch (status) {
+                    case "O":
+                        strokeColor = "#FF0101";
+                        break;
+                    case "A":
+                        strokeColor = "#008000";
+                        break;
+                    case "R":
+                        strokeColor = "#0504FE";
+                        break;
+                
+                    default:
+                        break;
                 }
-            };
-            xhr.send('graveClicked=' + encodeURIComponent(graveMapCoordinate[0].graveID));
-            document.getElementById('sidebar').style.display = 'flex';
-            document.getElementById('sidebar').style.width = '27%';
-            document.getElementById('map').style.width = '73%';
-        });
-    });
+                switch (graveClassification) {
+                    case "LL":
+                        fillColor = "#BD6868";
+                        break;
+                    case "GN":
+                        fillColor = "#FDB531";
+                        break;
+                    case "FE":
+                        fillColor = "#983198";
+                        break;                
+                    default:
+                        break;
+                }                
+                graves = new google.maps.Polygon({
+                    paths: graveMapCoordinate,
+                    strokeColor: strokeColor,
+                    strokeOpacity: 0.8,
+                    strokeWeight: 3,
+                    clickable: true,
+                    fillColor: fillColor,
+                    fillOpacity: 1,
+                    map: map,                    
+                });
+                google.maps.event.addListener(graves, 'click', function() { 
+                    var ajax = new XMLHttpRequest();
+                    ajax.open('POST', '../pages/grave-explorer-process.php', true);
+                    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    ajax.onreadystatechange = function() {
+                        if (ajax.readyState === 4 && ajax.status === 200) {
+                            // Process the PHP script response here if needed
+                            gravesiteResult = JSON.parse(ajax.responseText);
+                            var status = gravesiteResult.availability;
+                            var name = gravesiteResult['nameOfDeceased'];
+                            var dateOfBirth = gravesiteResult['dateOfBirth'];
+                            var dateOfDeath = gravesiteResult['dateOfDeath'];
+                            // var coordinates = gravesiteResult['graveCoordinates'];
+                            // coordinates.split(",")
+                            var coordinate = gravesiteResult['graveCoordinates'].split(",");
+                            var blockNo = coordinate[0];
+                            var lotNo = coordinate[1];
+                            var graveImage = gravesiteResult['graveImage'];
+                            var graveClassification = gravesiteResult['gravesiteClassification'];
+                            var gravePrice = gravesiteResult['price'];                    
+                            
+                            var nameHTML = document.getElementById('name');
+                            nameHTML.textContent = name;
+                            var dobHTML = document.getElementById('dob');
+                            dobHTML.textContent = dateOfBirth;
+                            var dodHTML = document.getElementById('dod');
+                            dodHTML.textContent = dateOfDeath;
+                            var blockNoHTML = document.getElementById('blockNo');
+                            blockNoHTML.textContent = blockNo;
+                            var lotNoHTML = document.getElementById('lotNo');
+                            lotNoHTML.textContent = lotNo;
+                            var graveImageHTML = document.getElementById('graveImage');
+                            graveImageHTML.src = "../assets/gravesite-images/" + graveImage;
+                            var priceHTML = document.getElementById('price');
+                            priceHTML.textContent = gravePrice;                    
+                            
+                            switch(graveClassification){
+                                case "LL":
+                                    var graveClassHTML = document.getElementById('graveClass');
+                                    graveClassHTML.textContent = "Lawn Lot";
+                                    break;
+                                case "FE":
+                                    var graveClassHTML = document.getElementById('graveClass');
+                                    graveClassHTML.textContent = "Family Estate";
+                                    break;
+                                case "GN":
+                                    var graveClassHTML = document.getElementById('graveClass');
+                                    graveClassHTML.textContent = "Garden Niche";
+                                    break;
+                                default:
+                            }
+        
+                            switch(status) {
+                                case "O":
+                                    var statusHTML = document.getElementById('status');
+                                    statusHTML.textContent = "Occupied";
+                                    document.getElementById('nameT').style.display = 'flex';
+                                    document.getElementById('dobT').style.display = 'flex';
+                                    document.getElementById('dodT').style.display = 'flex';
+                                    document.getElementById('graveImageT').style.display = 'flex';
+                                    //dont display
+                                    document.getElementById('graveClassT').style.display = 'none';
+                                    document.getElementById('priceT').style.display = 'none';
+                                    document.getElementById('buttonAvailableT').style.display = 'none';
+                                    break;
+                                case "R":
+                                    var statusHTML = document.getElementById('status');
+                                    statusHTML.textContent = "Reserved";
+                                    document.getElementById('graveClassT').style.display = 'flex';
+                                    //dont display
+                                    document.getElementById('nameT').style.display = 'none';
+                                    document.getElementById('dobT').style.display = 'none';
+                                    document.getElementById('dodT').style.display = 'none';
+                                    document.getElementById('graveImageT').style.display = 'none';
+                                    document.getElementById('priceT').style.display = 'none';
+                                    document.getElementById('buttonAvailableT').style.display = 'none';
+                                    break;
+                                case "A":
+                                    var statusHTML = document.getElementById('status');
+                                    statusHTML.textContent = "Available";
+                                    document.getElementById('graveClassT').style.display = 'flex';
+                                    document.getElementById('priceT').style.display = 'flex';
+                                    document.getElementById('buttonAvailableT').style.display = 'flex';
+                                    //dont display
+                                    document.getElementById('nameT').style.display = 'none';
+                                    document.getElementById('dobT').style.display = 'none';
+                                    document.getElementById('dodT').style.display = 'none';
+                                    break;
+                                default:
+                                    // code block
+                                }
+                        }
+                    };
+                    ajax.send('graveClicked=' + encodeURIComponent(graveMapCoordinate[0].graveID));
+                    document.getElementById('sidebar').style.display = 'flex';
+                    document.getElementById('sidebar').style.width = '27%';
+                    document.getElementById('map').style.width = '73%';
+                });  
+            }        
+        }
+        xhr.send('graveClicked=' + encodeURIComponent(graveMapCoordinate[0].graveID));
+    });     
 }
