@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="../css/chatbox.css">
     
     <script src="../javascript/scroll.js"></script>
-    <script src="../javascript/navbar.js"></script>
 </head>
 <body class="scroll-smooth font-montserrat">
     <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/chatbox.html' ?>
@@ -133,5 +132,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8BUuSDeRsrMGCh07tzXoW7UhCr-A2ESI&callback=initMap"></script>
     <script src="../javascript/chatbox.js"></script>
+    
+    <script src="../javascript/navbar.js"></script>
 </body>
 </html>

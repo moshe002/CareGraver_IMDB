@@ -16,7 +16,6 @@ chatClose.addEventListener('click', closeChatBox);
 
 //send message
 var sendButton = document.getElementById('chat-submit');
-console.log(sendButton);
 function sendMessage() {
   var messageHTML = document.getElementById('chat-input');
   var message = messageHTML.value;
@@ -26,14 +25,22 @@ function sendMessage() {
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.responseText);
       }
     };
     xhr.send('message=' + encodeURIComponent(message));
+    var swooshSound = document.getElementById("swooshSound");
+    swooshSound.play();
+    messageHTML.value = "";
   }
 }
-
 sendButton.addEventListener('click', sendMessage);
+inputField = document.getElementById('chat-input');
+inputField.addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+      event.preventDefault();
+      sendButton.click();
+  }
+});
 
 var chatIDRendered = [];
 
