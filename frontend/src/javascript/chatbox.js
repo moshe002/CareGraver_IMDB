@@ -22,7 +22,7 @@ function sendMessage() {
   var message = messageHTML.value;
   if (message.trim() !== ""){
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '../../../backend/server-side processing/chat-process.php', true);
+    xhr.open('POST', '../../../backend/server-side-processing/chat-process.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -72,7 +72,7 @@ function receiveMessage() {
       
     }
   };  
-  xhr.open('GET', '../../../backend/server-side processing/chat-process.php', true);
+  xhr.open('GET', '../../../backend/server-side-processing/chat-process.php', true);
   xhr.send();
 }
 setInterval(receiveMessage, 1000);

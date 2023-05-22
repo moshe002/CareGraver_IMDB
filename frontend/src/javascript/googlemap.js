@@ -391,7 +391,7 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
     // Create a rectangle for each grave site/tombstone and add it to the map
     graveMapCoordinates.forEach(function(graveMapCoordinate) {
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/CareGraver_IMDB/backend/server-side processing/grave-explorer-process.php', true);
+        xhr.open('POST', '/CareGraver_IMDB/backend/server-side-processing/grave-explorer-process.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {    
@@ -438,7 +438,7 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                 });
                 google.maps.event.addListener(graves, 'click', function() { 
                     var ajax = new XMLHttpRequest();
-                    ajax.open('POST', '/CareGraver_IMDB/backend/server-side processing/grave-explorer-process.php', true);
+                    ajax.open('POST', '/CareGraver_IMDB/backend/server-side-processing/grave-explorer-process.php', true);
                     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     ajax.onreadystatechange = function() {
                         if (ajax.readyState === 4 && ajax.status === 200) {
