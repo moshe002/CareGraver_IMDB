@@ -13,15 +13,15 @@ if(isset($_REQUEST['sub'])){
 		if (password_verify($b, $row['userPassword'])){
 			$_SESSION["loggedInUser"] = $row;
 			$_SESSION["login"]="1";
-			header("location:homepage.php");
+			header("location:/CareGraver_IMDB/frontend/src/pages/homepage.php");
 		}
 		else{//not match pass
-			header("location:login.php?err=2");	
+			header("location:/CareGraver_IMDB/frontend/src/pages/login.php?err=2");	
 		}	
 	}
 	else{
 		//username or email no match
-		header("location:login.php?err=1");	
+		header("location:/CareGraver_IMDB/frontend/src/pages/login.php?err=1");	
 	}
 	
 }

@@ -34,7 +34,7 @@
         <!-- form div -->
         <div class="flex flex-col justify-center p-3 gap-7">
             <h1 class="font-semibold text-2xl">Sign Up</h1>
-            <form class="flex flex-col gap-5" action="/CareGraver_IMDB/frontend/src/pages/signupprocess.php" method="post">
+            <form class="flex flex-col gap-5" action="/CareGraver_IMDB/backend/server-side processing/signup-process.php" method="post">
                 <?php  if(in_array("Email_Taken", $errorValidate)) echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">Email already in use<br></p>';
                     elseif(in_array("Invalid_Email", $errorValidate)) echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">Invalid email format<br></p>';
                     elseif(in_array("Username_Taken", $errorValidate)) echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">Username already in use<br></p>';

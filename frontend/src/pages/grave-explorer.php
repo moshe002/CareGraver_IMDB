@@ -148,20 +148,12 @@
                     document.getElementById('payment_modal').style.display = 'none';
                 })();">&#10006;</button>
                 <br>
-                <p class="text-gray-400 text-base font-semibold">To continue your reservation kindly choose your mode of payment:</p>
-                <br>
-                <button id="gcash-btn" class="flex flex-row justify-between items-center rounded-md w-60 border-2 focus:border-2 focus:border-blue-400">
-                    <div class="flex items-center p-0">
-                        <img class="w-16 h-16" src="../assets//icons//Gcash_icon.png" alt="gcash">
-                        <h1>Gcash</h1>
-                    </div>
-                    <img id="blue-check-icon1" class="invisible duration-150 mr-2" src="../assets//icons//blue_check_icon.png" alt="blue_check">
-                </button>
+                <p class="text-gray-400 text-base font-semibold">Gravesite Reservation</p>
                 <br>
                 <button id="paypal-btn" class="flex flex-row justify-between items-center py-1 rounded-md w-60 border-2 focus:border-2 focus:border-blue-400">
                     <div class="flex gap-1 items-center">
                         <img src="../assets//icons//PayPal_icon.png" alt="paypal">
-                        <h1>PayPal</h1>
+                        <h1>Proceed to payment</h1>
                     </div>
                     <img id="blue-check-icon2" class="invisible duration-150 mr-2" src="../assets//icons//blue_check_icon.png" alt="blue_check">
                 </button>
