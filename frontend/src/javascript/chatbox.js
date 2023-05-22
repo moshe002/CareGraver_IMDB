@@ -50,7 +50,6 @@ function receiveMessage() {
   xhr.onreadystatechange = function() {    
     if (xhr.readyState === 4 && xhr.status === 200) {
       var allMessages = JSON.parse(xhr.responseText);   
-      console.log(allMessages);   
       var receivedContainer = document.getElementById("received-area");
       var sentContainer = document.getElementById("sent-area");
       allMessages.forEach(element => {
