@@ -26,10 +26,24 @@
                     id="payment_form"
                     class="flex flex-col relative gap-10 2xl:gap-10 h-full w-11/12 mt-2 2xl:mt-10">
                     <!-- name of deceased -->
-                    <div>
-                        <label class="font-semibold text-base 2xl:text-2xl" for="name_of_deceased">Name of Deceased</label>
-                        <br>
-                        <input class="px-2 py-1 focus:border-b-gray-400 duration-150 border-b-2 w-full outline-none" type="text" id="name_of_deceased" required>
+                    <div>Deceased Information
+                        <div>
+                            <label class="font-semibold text-base 2xl:text-2xl" for="name_of_deceased">Name of Deceased</label>
+                            <br>
+                            <input class="px-2 py-1 focus:border-b-gray-400 duration-150 border-b-2 w-full outline-none" type="text" id="name_of_deceased" required>
+                        </div>
+                        <div>
+                            <div class="flex flex-row justify-between">
+                                <div class="border-b-2">
+                                    <label for="date_ceremony">Birth Date:&nbsp;</label>
+                                    <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="date_ceremony" required>
+                                </div>
+                                <div class="border-b-2">
+                                    <label for="date_ceremony">Death Date:&nbsp;</label>
+                                    <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="date_ceremony" required>
+                                </div>
+                            </div>   
+                        </div>
                     </div>
                     <!-- schedule -->
                     <div>
@@ -41,8 +55,8 @@
                                 <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="date_ceremony" required>
                             </div>
                             <div class="border-b-2">
-                                <label for="time_ceremony">Time:&nbsp;</label>
-                                <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="time" id="time_ceremony" required>
+                                <label for="time_ceremony">Time:&nbsp;</label>                                
+                                <?php include('../components/time-picker.html'); ?>
                             </div>
                         </div>
                     </div> 
@@ -105,5 +119,6 @@
     <script src="../javascript/online-payment.js"></script>
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/user-menu.js"></script>
+    <script src="../javascript/book-ceremony.js"></script>
 </body>
 </html>

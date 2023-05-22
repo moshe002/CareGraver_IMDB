@@ -61,11 +61,11 @@
         }   
         if(!empty($showError)){
             $errorInURL = implode("&&",$showError);
-            header("location:signup.php?err=$errorInURL");
+            header("location:/CareGraver_IMDB/frontend/src/pages/signup.php?err=$errorInURL");
         }
         else{	
             $_SESSION["login"]="1";
-            header("location:login.php?register=success");  
+            header("location:/CareGraver_IMDB/frontend/src/pages/login.php?register=success");  
         } 
 
     }

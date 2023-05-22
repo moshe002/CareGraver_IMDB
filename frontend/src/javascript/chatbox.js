@@ -16,24 +16,31 @@ chatClose.addEventListener('click', closeChatBox);
 
 //send message
 var sendButton = document.getElementById('chat-submit');
-console.log(sendButton);
 function sendMessage() {
   var messageHTML = document.getElementById('chat-input');
   var message = messageHTML.value;
   if (message.trim() !== ""){
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '../pages/chat-process.php', true);
+    xhr.open('POST', '../../../backend/server-side-processing/chat-process.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.responseText);
       }
     };
     xhr.send('message=' + encodeURIComponent(message));
+    var swooshSound = document.getElementById("swooshSound");
+    swooshSound.play();
+    messageHTML.value = "";
   }
 }
-
 sendButton.addEventListener('click', sendMessage);
+inputField = document.getElementById('chat-input');
+inputField.addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+      event.preventDefault();
+      sendButton.click();
+  }
+});
 
 var chatIDRendered = [];
 
@@ -43,7 +50,6 @@ function receiveMessage() {
   xhr.onreadystatechange = function() {    
     if (xhr.readyState === 4 && xhr.status === 200) {
       var allMessages = JSON.parse(xhr.responseText);   
-      console.log(allMessages);   
       var receivedContainer = document.getElementById("received-area");
       var sentContainer = document.getElementById("sent-area");
       allMessages.forEach(element => {
@@ -72,7 +78,7 @@ function receiveMessage() {
       
     }
   };  
-  xhr.open('GET', '../pages/chat-process.php', true);
+  xhr.open('GET', '../../../backend/server-side-processing/chat-process.php', true);
   xhr.send();
 }
 setInterval(receiveMessage, 1000);

@@ -8,8 +8,7 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
         heading: 321,
         tilt: 47.5,
         mapId: "37a142a1e1464d01"
-    });//syntax of... google.maps.Map(mapDiv,options) - options can accept multiple settings like zoom, style, et
-
+    });//syntax of... google.maps.Map(mapDiv,options) - options can accept multiple settings like zoom, style, et   
 
     var a1 = [
         {lat: 10.308971, lng: 123.910485, graveID: 1},
@@ -375,14 +374,15 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
         {lat: 10.309117, lng: 123.911380},
         {lat: 10.309082, lng: 123.911335}
     ];
+    // graveMapCoordinates = 
+    //     [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10,
+    //     b1, b2, b3, b4, b5, b6, b7, b8, b9, b10,
+    //     c1, c2, c3, c4, c5, c6, c7, c8, c9, c10,
+    //     d1, d2, d3, d4, d5, d6, d7, d8, d9, d10,
+    //     e1, e2, e3, e4, e5, e6, e7, e8, e9, e10,
+    //     f1, f2, f3, f4, f5, f6, f7, f8, f9, f10];
     graveMapCoordinates = 
-        [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10,
-        b1, b2, b3, b4, b5, b6, b7, b8, b9, b10,
-        c1, c2, c3, c4, c5, c6, c7, c8, c9, c10,
-        d1, d2, d3, d4, d5, d6, d7, d8, d9, d10,
-        e1, e2, e3, e4, e5, e6, e7, e8, e9, e10,
-        f1, f2, f3, f4, f5, f6, f7, f8, f9, f10];
-
+        [a1, a2, a3, a4, a5];
 
     var graves= new google.maps.Polygon();
     var strokeColor = "";
@@ -391,13 +391,14 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
     // Create a rectangle for each grave site/tombstone and add it to the map
     graveMapCoordinates.forEach(function(graveMapCoordinate) {
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', '../pages/grave-explorer-process.php', true);
+        xhr.open('POST', '/CareGraver_IMDB/backend/server-side-processing/grave-explorer-process.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
+            if (xhr.readyState === 4 && xhr.status === 200) {    
                 gravesiteResult = JSON.parse(xhr.responseText);
+                console.log(xhr.responseText);
                 var status = gravesiteResult.availability;
-                var graveClassification = gravesiteResult['gravesiteClassification'];
+                var graveClassification = gravesiteResult['graveClassification'];
                 switch (status) {
                     case "O":
                         strokeColor = "#FF0101";
@@ -413,13 +414,13 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                         break;
                 }
                 switch (graveClassification) {
-                    case "LL":
+                    case "Lawn Lot":
                         fillColor = "#BD6868";
                         break;
-                    case "GN":
+                    case "Garden Niche":
                         fillColor = "#FDB531";
                         break;
-                    case "FE":
+                    case "Family Estate":
                         fillColor = "#983198";
                         break;                
                     default:
@@ -429,7 +430,7 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                     paths: graveMapCoordinate,
                     strokeColor: strokeColor,
                     strokeOpacity: 0.8,
-                    strokeWeight: 3,
+                    strokeWeight: 5,
                     clickable: true,
                     fillColor: fillColor,
                     fillOpacity: 1,
@@ -437,7 +438,7 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                 });
                 google.maps.event.addListener(graves, 'click', function() { 
                     var ajax = new XMLHttpRequest();
-                    ajax.open('POST', '../pages/grave-explorer-process.php', true);
+                    ajax.open('POST', '/CareGraver_IMDB/backend/server-side-processing/grave-explorer-process.php', true);
                     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     ajax.onreadystatechange = function() {
                         if (ajax.readyState === 4 && ajax.status === 200) {
@@ -453,9 +454,9 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                             var blockNo = coordinate[0];
                             var lotNo = coordinate[1];
                             var graveImage = gravesiteResult['graveImage'];
-                            var graveClassification = gravesiteResult['gravesiteClassification'];
+                            var graveClassification = gravesiteResult['graveClassification'];
                             var gravePrice = gravesiteResult['price'];                    
-                            
+                            console.log(graveClassification);
                             var nameHTML = document.getElementById('name');
                             nameHTML.textContent = name;
                             var dobHTML = document.getElementById('dob');
@@ -469,24 +470,10 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                             var graveImageHTML = document.getElementById('graveImage');
                             graveImageHTML.src = "../assets/gravesite-images/" + graveImage;
                             var priceHTML = document.getElementById('price');
-                            priceHTML.textContent = gravePrice;                    
-                            
-                            switch(graveClassification){
-                                case "LL":
-                                    var graveClassHTML = document.getElementById('graveClass');
-                                    graveClassHTML.textContent = "Lawn Lot";
-                                    break;
-                                case "FE":
-                                    var graveClassHTML = document.getElementById('graveClass');
-                                    graveClassHTML.textContent = "Family Estate";
-                                    break;
-                                case "GN":
-                                    var graveClassHTML = document.getElementById('graveClass');
-                                    graveClassHTML.textContent = "Garden Niche";
-                                    break;
-                                default:
-                            }
-        
+                            priceHTML.textContent = gravePrice;
+                            var graveClassHTML = document.getElementById('graveClass');
+                            graveClassHTML.textContent = graveClassification;
+
                             switch(status) {
                                 case "O":
                                     var statusHTML = document.getElementById('status');
@@ -532,9 +519,12 @@ function initMap() { //google maps initialize, asa ang coordinates, unsay style 
                     document.getElementById('sidebar').style.display = 'flex';
                     document.getElementById('sidebar').style.width = '27%';
                     document.getElementById('map').style.width = '73%';
-                });  
+                });
+                
+                
             }        
         }
+        
         xhr.send('graveClicked=' + encodeURIComponent(graveMapCoordinate[0].graveID));
     });     
 }

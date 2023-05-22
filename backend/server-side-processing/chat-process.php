@@ -1,6 +1,6 @@
 <?php 
     include('config.php');
-    include('loginprocess.php');    
+    include('login-process.php');    
     $userLoggedIn = $_SESSION['loggedInUser'];
     $senderUID = $userLoggedIn['userID'];    
     $allMessages = [];

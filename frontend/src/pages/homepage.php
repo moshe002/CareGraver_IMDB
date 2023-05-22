@@ -1,9 +1,8 @@
-<?php   
-session_start();
-if(!isset($_SESSION["login"]))
-	header("location:login.php"); 
-$loggedInUser=$_SESSION["loggedInUser"];
-    
+<?php
+    session_start();
+    if(!isset($_SESSION["login"]))
+        header("location:/CareGraver_IMDB/frontend/src/pages/login.php"); 
+    $loggedInUser = $_SESSION["loggedInUser"];
 ?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -23,13 +22,12 @@ $loggedInUser=$_SESSION["loggedInUser"];
     <link rel="stylesheet" href="../css/chatbox.css">
     
     <script src="../javascript/scroll.js"></script>
-    <script src="../javascript/navbar.js"></script>
 </head>
 <body class="scroll-smooth font-montserrat">
     <?php include '/xampp/htdocs/CareGraver_IMDB/frontend/src/components/chatbox.html' ?>
     <div id="home" class="relative bg-[url('../assets/background-images/Background-image.png')] h-full w-full bg-no-repeat bg-cover bg-center" style="background-attachment: fixed;">
     <!-- navbar -->
-        <header>
+    <header>
             <div id="navbar" class="wrapHead flex flex-row fixed justify-between items-center w-full bg-white shadow-2xl p-5 duration-150 z-50">
                 <div class="flex justify-start ml-24 items-center gap-24">
                     <h1 class="font-bold text-2xl">CareGraver</h1>
@@ -203,5 +201,7 @@ $loggedInUser=$_SESSION["loggedInUser"];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8BUuSDeRsrMGCh07tzXoW7UhCr-A2ESI&callback=initMap"></script>
     <script src="../javascript/chatbox.js"></script>
+    
+    <script src="../javascript/navbar.js"></script>
 </body>
 </html>
