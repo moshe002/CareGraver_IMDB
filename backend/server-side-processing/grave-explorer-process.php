@@ -7,4 +7,4 @@ include('config.php');
         $_POST['gravesiteResult'] = $result;
     }
     echo json_encode($_POST['gravesiteResult']);
-    ?>
+?>
