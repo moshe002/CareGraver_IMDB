@@ -141,27 +141,65 @@
         <!-- end of sidebar occupied -->
         <!-- modal on reserve -->
         <div id="payment_modal" class="hidden justify-center items-center h-screen w-full left-0 right-0 mr-auto ml-auto z-50 fixed inset-0 overflow-y-auto backdrop-filter backdrop-blur-sm">
-            <div id="payment_content" class="flex flex-col justify-center items-center relative bg-white p-10 h-min w-80 shadow-2xl rounded-md">
+            <form id="payment_content" class="flex flex-col justify-start items-start gap-5 relative bg-white mb-10 p-10 h-min w-1/2 shadow-2xl rounded-md">
                 <button 
                 class="absolute top-5 right-5"
                 onclick="(function(){
                     document.getElementById('payment_modal').style.display = 'none';
                 })();">&#10006;</button>
                 <br>
-                <p class="text-gray-400 text-base font-semibold">Gravesite Reservation</p>
-                <br>
-                <button id="paypal-btn" class="flex flex-row justify-between items-center py-1 rounded-md w-60 border-2 focus:border-2 focus:border-blue-400">
-                    <div class="flex gap-1 items-center">
-                        <img src="../assets//icons//PayPal_icon.png" alt="paypal">
-                        <h1>Proceed to payment</h1>
+                <h1 class="text-2xl font-bold">Christian Funeral Prayer:</h1>
+                <div class="flex flex-col gap-3 w-full">
+                    <label for="username_payment">Username:
+                        <input class="outline-none border-b-2" id="username_payment" type="text" placeholder="NinimonicaUser123">
+                    </label>
+                    <label class="flex items-center gap-5" for="account_bal">Account Balance
+                        <h1 class="p-2 bg-green-400 text-white text-center rounded-md">Php 100,000</h1>
+                    </label>
+                </div>
+                <h1 class="text-lg font-bold">Are you sure you want to lease?</h1>
+                <div class="flex flex-col gap-3 w-full">
+                    <div class="flex justify-between gap-3">
+                        <div class="flex items-center w-full">
+                            <label class="w-1/3" for="graves_owned">Gravesite ID</label>
+                            <input class="outline-none w-2/4 text-base" id="graves_owned" type="number" placeholder="12345678">
+                        </div>
+                        <div class="flex justify-end items-center w-1/2">
+                            <label class="w-full" for="block_num">Block Number</label>
+                            <select class="outline-none w-1/4" name="block_num" id="block_num">
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
                     </div>
-                    <img id="blue-check-icon2" class="invisible duration-150 mr-2" src="../assets//icons//blue_check_icon.png" alt="blue_check">
-                </button>
-            </div>
+                    <div class="flex justify-between gap-3 h-10">
+                        <div class="flex items-center w-full">
+                            <label class="w-1/3" for="ceremony_type">Gravesite Type</label>
+                            <input class="outline-none w-2/4 text-base" id="ceremony_type" type="text" placeholder="Garden Niche">
+                        </div>
+                        <div class="flex justify-end items-center w-1/2">
+                            <label class="w-full" for="block_num">Lot Number</label>
+                            <select class="outline-none w-1/4" name="block_num" id="block_num">
+                                <option value="59">59</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-10 items-center">
+                    <h1 class="text-lg">Pay</h1>
+                    <h1 class="p-2 bg-red-400 rounded-md text-white">Php 20,000</h1>
+                </div>
+                <div class="flex justify-end items-end w-full">
+                    <input type="submit" class="text-white bg-blue-400 rounded-md py-2 px-4 cursor-pointer" >
+                </div>
+            </form>
         </div>
         <!-- end of reserve modal -->
     </div>
-    <script src="../javascript//online-payment.js"></script>
+    <script src="../javascript//burial-payment.js"></script>
     <script src="../javascript/user-menu.js"></script>
     <script src="../javascript/googlemap.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8BUuSDeRsrMGCh07tzXoW7UhCr-A2ESI&callback=initMap"></script>
