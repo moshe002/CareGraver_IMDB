@@ -39,7 +39,7 @@
                                     <label class="font-semibold text-base 2xl:text-2xl" for="dob">Birth Date:&nbsp;</label>
                                     <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="dob" required>
                                 </div>
-                                <div class="border-b-2">
+                                <div class="border-b-2 width border-b-green-400">
                                     <br>
                                     <label class="font-semibold text-base 2xl:text-2xl" for="dod">Death Date:&nbsp;</label>
                                     <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="dod" required>

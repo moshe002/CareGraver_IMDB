@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION["login"]))
     header("location:/CareGraver_IMDB/frontend/src/pages/login.php");
-$loggedInUser = $_SESSION["loggedInUser"];
+isset($_SESSION['loggedInUser']) ? $loggedInUser = $_SESSION["loggedInUser"]:false;
 ?>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -89,14 +89,14 @@ $loggedInUser = $_SESSION["loggedInUser"];
                                 <li>
                                     <a href="#"
                                         class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Orders</a>
-                                </li>r
+                                </li>
                                 <li>
                                     <a href="#"
                                         class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Chats</a>
                                 </li>
                             </ul>
                             <div class="py-2">
-                                <a href="logoutprocess.php"
+                                <a href="/CareGraver_IMDB/backend/server-side-processing/logout-process.php"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
                                     out</a>
                             </div>
