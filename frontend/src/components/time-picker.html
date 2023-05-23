@@ -1,27 +1,64 @@
-<div class="mt-2 p-5 w-40 bg-white rounded-lg shadow-xl">
+<div name="time-picker" class="mt-2 p-5 w-40 bg-white rounded-lg shadow-xl">
     <div class="flex">
-      <select name="hours" class="bg-transparent text-xl appearance-none outline-none">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">10</option>
-        <option value="12">12</option>
+      <select id="hours" name="hours" class="bg-transparent text-xl appearance-none outline-none">
+        <option value="1:">1</option>
+        <option value="2:">2</option>
+        <option value="3:">3</option>
+        <option value="4:">4</option>
+        <option value="5:">5</option>
+        <option value="6:">6</option>
+        <option value="7:">7</option>
+        <option value="8:">8</option>
+        <option value="9:">9</option>
+        <option value="10:">10</option>
+        <option value="11:">11</option>
+        <option value="12:">12</option>
       </select>
       <span class="text-xl mr-3">:</span>
-      <select name="minutes" class="bg-transparent text-xl appearance-none outline-none mr-4">
-        <option value="0">00</option>
+      <select id="minutes" name="minutes" class="bg-transparent text-xl appearance-none outline-none mr-4">
+        <option value="00">00</option>
         <option value="30">30</option>
       </select>
-      <select name="ampm" class="bg-transparent text-xl appearance-none outline-none">
-        <option value="am">AM</option>
-        <option value="pm">PM</option>
+      <select id="ampm" name="ampm" class="bg-transparent text-xl appearance-none outline-none">
+        <option value=" AM">AM</option>
+        <option value=" PM">PM</option>
       </select>
+      <button onclick="getTimePickerValues()">Get Values</button>
     </div>
-  </div>
+    <div style = "display:none" name="time-ceremony" id="time-ceremony"></div>
+</div>
+  <script>
+    function getTimePickerValues() {
+        const hours = document.getElementById("hours").value;
+        const minutes = document.getElementById("minutes").value;
+        const ampm = document.getElementById("ampm").value;
+        timeHTML = document.getElementById('time-ceremony').textContent;
+        timeHTML = convertTo24HourFormat(hours + minutes + ampm); 
+        timeHTML += ":00";  
+        console.log(hours + minutes + ampm);
+        console.log(timeHTML); // Output: 01:00
+    }
+    function convertTo24HourFormat(time) {
+        // Split the time string into hours and minutes
+        var parts = time.split(":");
+        var hours = parseInt(parts[0]);
+        var minutes = parseInt(parts[1]);
+
+        // Check if it is AM and hour is 12, then set hours to 0
+        if (time.toLowerCase().indexOf("am") !== -1 && hours === 12) {
+            hours = 0;
+        }
+
+        // Check if it is PM and hour is less than 12, then add 12 to hours
+        if (time.toLowerCase().indexOf("pm") !== -1 && hours < 12) {
+            hours += 12;
+        }
+
+        // Convert hours and minutes to 2-digit format
+        var formattedHours = ("0" + hours).slice(-2);
+        var formattedMinutes = ("0" + minutes).slice(-2);
+
+        // Return the time in 24-hour format
+        return formattedHours + ":" + formattedMinutes;
+    }
+  </script>

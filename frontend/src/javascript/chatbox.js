@@ -42,16 +42,16 @@ inputField.addEventListener("keyup", function(event) {
   }
 });
 
-var chatIDRendered = [];
-
+var chatIDRendered = [];//listahan sa tanan messages chatID
 //receive incoming chats
 function receiveMessage() {
   var xhr = new XMLHttpRequest();
+  console.log(xhr.responseText);
   xhr.onreadystatechange = function() {    
     if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log(xhr.responseText);
       var allMessages = JSON.parse(xhr.responseText);   
-      var receivedContainer = document.getElementById("received-area");
-      var sentContainer = document.getElementById("sent-area");
+      var messageContainer = document.getElementById("text-area");
       allMessages.forEach(element => {
         if (chatIDRendered.indexOf(element['chatID']) == -1){
           switch (element['SentOrReceived']) {
@@ -97,14 +97,11 @@ function receiveMessage() {
               break;
           }          
           chatIDRendered.push(element['chatID']);
-        }
-        
-      });
-      
-      
+        }        
+      });     
     }
   };  
   xhr.open('GET', '../../../backend/server-side-processing/chat-process.php', true);
   xhr.send();
 }
-setInterval(receiveMessage, 1000);
+setInterval(receiveMessage, 3000);
