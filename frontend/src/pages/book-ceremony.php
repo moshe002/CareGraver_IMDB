@@ -21,12 +21,12 @@
     <div class="p-10">
         <div class="flex flex-row h-screen justify-between p-3 shadow-2xl">
             <div class="flex flex-col items-start justify-center py-5 px-10 w-1/2">
-                <h1 class="font-bold text-3xl border-b-4 pb-5 border-b-blue-400">Book a Burial Ceremony</h1>
+                <h1 class="font-bold text-3xl border-b-4 pb-5 border-b-blue-400">Christian Funeral Prayer</h1>
                 <form 
                     id="payment_form"
-                    class="flex flex-col relative gap-10 2xl:gap-10 h-full w-11/12 mt-2 2xl:mt-10">
+                    class="flex flex-col relative gap-10 2xl:gap-10 h-full w-11/12 mt-2 2xl:mt-10"><br>
                     <!-- name of deceased -->
-                    <div>Deceased Information
+                    <div>
                         <div>
                             <label class="font-semibold text-base 2xl:text-2xl" for="name_of_deceased">Name of Deceased</label>
                             <br>
@@ -35,12 +35,14 @@
                         <div>
                             <div class="flex flex-row justify-between">
                                 <div class="border-b-2">
-                                    <label for="date_ceremony">Birth Date:&nbsp;</label>
-                                    <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="date_ceremony" required>
+                                    <br>
+                                    <label class="font-semibold text-base 2xl:text-2xl" for="dob">Birth Date:&nbsp;</label>
+                                    <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="dob" required>
                                 </div>
                                 <div class="border-b-2">
-                                    <label for="date_ceremony">Death Date:&nbsp;</label>
-                                    <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="date_ceremony" required>
+                                    <br>
+                                    <label class="font-semibold text-base 2xl:text-2xl" for="dod">Death Date:&nbsp;</label>
+                                    <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="dod" required>
                                 </div>
                             </div>   
                         </div>
@@ -51,11 +53,11 @@
                         <br>
                         <div class="flex flex-row justify-between">
                             <div class="border-b-2">
-                                <label for="date_ceremony">Date:&nbsp;</label>
+                                <label class="font-medium text-base 2xl:text-2xl" for="date_ceremony">Date:&nbsp;</label>
                                 <input class="p-2 focus:border-gray-400 duration-150 outline-none" type="date" id="date_ceremony" required>
                             </div>
                             <div class="border-b-2">
-                                <label for="time_ceremony">Time:&nbsp;</label>                                
+                                <label class="font-medium text-base 2xl:text-2xl" for="time_picker">Time:&nbsp;</label>                                
                                 <?php include('../components/time-picker.html'); ?>
                             </div>
                         </div>
@@ -119,6 +121,5 @@
     <script src="../javascript/online-payment.js"></script>
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/user-menu.js"></script>
-    <script src="../javascript/book-ceremony.js"></script>
 </body>
 </html>

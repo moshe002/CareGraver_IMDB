@@ -111,16 +111,18 @@
     <!-- services section -->
     <div class="h-full bg-gray-100" id="service">
         <div class="flex flex-col gap-6 justify-start p-28">
-            <h1 class="text-blue-500 font-bold text-lg">Our Burial Ceremony</h1>
-            <h1 class="font-bold text-5xl">Lorem ipsum dolor, sit amet.</h1>
-            <p class="text-gray-400 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Facilis iste dicta assumenda natus nostrum minima minus</p>
+            <h1 class="text-blue-500 font-bold text-lg">Book now on our</h1>
+            <h1 class="font-bold text-5xl">Burial Ceremony</h1>
+            <p class="text-gray-400 text-sm">is your essential resource for arranging a heartfelt and memorable farewell. With practical tips and invaluable insights, <br> this engaging guide empowers you to honor your loved one's legacy with grace and ensure their memory lives on in a meaningful way.</p>
             <!-- services ehe uwu  -->
             <div class="flex flex-col gap-5">
                 <div class="flex flex-row shadow-lg">
                     <img src="../assets/images/burial_ceremony_1.png" alt="burial_cere_1">
                     <div class="flex flex-col justify-start gap-5 p-10">
                         <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Christian funeral Prayer</h1>
-                        <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
+                        <p class="text-sm text-gray-400">A compassionate service that honors and celebrates the lives of departed loved ones within the Christian faith, 
+                                                        providing comfort, prayer, and reflection for grieving families and friends. Our heartfelt approach encompasses 
+                                                        scripture readings, hymns, and eulogies, offering solace in the promise of God's love and eternal peace.</p>
                         <button onClick="location.href='book-ceremony.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Book Now</button>
                     </div>
                 </div>
@@ -128,7 +130,9 @@
                     <img src="../assets/images/burial_ceremony_2.png" alt="burial_cere_2">
                     <div class="flex flex-col justify-start gap-5 p-10">
                         <h1 class="text-3xl font-bold border-b-2 pb-3 border-b-blue-400">Non-religious funeral blessing</h1>
-                        <p class="text-sm text-gray-400">The gradual accumulation of  information about atomic and small-scale behaviour. The gradual accumulation of information about atomic and small-scale behaviour...</p>
+                        <p class="text-sm text-gray-400">A compassionate service offering solace and support to honor the lives of departed loved ones, providing meaningful
+                                                         reflections and comforting moments for grieving families and friends without religious affiliation. Our service focuses 
+                                                         on heartfelt words, personal tributes, and peaceful remembrance to find solace in the memories and legacy of those we have lost.</p>
                         <button onClick="location.href='book-ceremony.php'" type="button" class="bg-blue-500 text-white font-bold w-1/2 px-1 py-2 rounded-md hover:bg-cyan-300 duration-150">Book Now</button>
                     </div>
                 </div>
@@ -139,7 +143,7 @@
     <!-- grave explorer -->
     <div class="h-full" id="explorer">
         <div class="flex flex-col gap-6 justify-start p-28">
-            <h1 class="text-blue-500 font-bold text-lg">Take a tour on our cemetery</h1>
+            <h1 class="text-blue-500 font-bold text-lg">Take a tour on our</h1>
             <h1 class="font-bold text-5xl">Cemetery Explorer</h1>
             <p class="text-gray-400 text-sm">The Cemetery Explorer is a powerful tool that displays all the available and occupied grave sites.
             <br>Click on a grave site to proceed to the grave site application form.</p>

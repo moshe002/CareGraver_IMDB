@@ -8,7 +8,7 @@
     //send message
     if (isset($_POST['message'])){
         $message = $_POST['message'];
-        $sql = mysqli_query($mysqli,"INSERT INTO `chat` (`senderUID`,`receiverUID`,`chatMessage`,`sentDate`) VALUES ('$senderUID','admin','$message', current_timestamp())");    
+        $sql = mysqli_query($mysqli,"INSERT INTO `chat` (`senderUID`,`receiverUID`,`chatMessage`,`sentDate`) VALUES ('$senderUID','5000','$message', current_timestamp())");    
     }
     
     //receiving all incoming
