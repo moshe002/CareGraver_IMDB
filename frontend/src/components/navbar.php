@@ -9,7 +9,6 @@
         <h1 class="font-bold text-2xl">CareGraver</h1>
         <nav class="flex gap-10 font-semibold" id="topnav">
             <a class="scroll duration-150" href="../pages/homepage.php">Home</a>
-            <a class="scroll duration-150" href="../pages/book-ceremony.php">Burial Ceremony</a>
             <a class="scroll duration-150" href="../pages/grave-explorer.php">Explorer</a>
             <a type="button" class="scroll duration-150 hover:cursor-pointer" onclick="(function(){
                 window.location.href = 'contact-page.php';
