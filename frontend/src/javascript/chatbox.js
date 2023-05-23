@@ -52,12 +52,12 @@ function receiveMessage() {
       console.log(xhr.responseText);
       var allMessages = JSON.parse(xhr.responseText);   
       var messageContainer = document.getElementById("text-area");
+      messageContainer.style.position = "relative";
       allMessages.forEach(element => {
         if (chatIDRendered.indexOf(element['chatID']) == -1){
           switch (element['SentOrReceived']) {
             case "received":
               var receivedMessage = document.createElement("div");
-              receivedContainer.className = "flex justify-end"
               receivedMessage.id = "receive-msg";
               receivedMessage.className = "items-end bg-gray-300 text-start p-2"
               receivedMessage.style.border = "1px solid gray";
@@ -71,8 +71,8 @@ function receiveMessage() {
               
               receivedMessage.style.width = textWidth + "px"; // Set the width based on the text width
               
-              receivedContainer.appendChild(receivedMessage);
-              receivedContainer.appendChild(document.createElement("br"));
+              messageContainer.appendChild(receivedMessage);
+              messageContainer.appendChild(document.createElement("br"));
               break;            
             case "sent":
               var sentMessage = document.createElement("div");
@@ -80,6 +80,9 @@ function receiveMessage() {
               sentMessage.className = "flex justify-end bg-blue-300 p-2"
               sentMessage.style.border = "1px solid #32A9DD";
               sentMessage.style.display = "inline-block";
+              sentMessage.style.position = "absolute";
+              sentMessage.style.right = "0";
+              sentMessage.style.marginRight = "10px";
               sentMessage.style.textAlign = "right"; // Set the display to inline-block
               sentMessage.textContent = element['chatMessage'];
               
@@ -90,8 +93,10 @@ function receiveMessage() {
               
               sentMessage.style.width = textWidth + "px"; // Set the width based on the text width
               
-              sentContainer.appendChild(sentMessage);
-              sentContainer.appendChild(document.createElement("br"));
+              messageContainer.appendChild(sentMessage);
+              messageContainer.appendChild(document.createElement("br"));
+              messageContainer.appendChild(document.createElement("br"));
+
               break;          
             default:
               break;
