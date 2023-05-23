@@ -22,13 +22,13 @@
     <div class="flex flex-col sm:flex-row justify-evenly items-center mt-10">
         <!-- text div -->
         <div class="flex flex-col text-left p-3 pt-20">
-            <h1 class="text-3xl font-semibold"><b>Sign in to</b><br>
-                Lorem Ipsum is simply
+            <h1 class="text-3xl font-semibold"><b>Welcome</b><br>
+                Log in to continue
             </h1>
             <br>
             <br>
-            <p>If you don't have an account register <br>
-            You can <a class="text-blue-500 hover:cursor-pointer font-bold" href="signup.php">Register here!</a>
+            <p>Don't have an account?<br>
+            You can <a class="text-blue-500 hover:cursor-pointer font-bold" href="signup.php">Register Here</a>
             </p>
         </div>
         <!-- form div -->

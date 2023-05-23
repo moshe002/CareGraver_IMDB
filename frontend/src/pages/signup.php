@@ -22,13 +22,13 @@
     <div class="flex flex-col sm:flex-row justify-evenly mt-10">
         <!-- text div -->
         <div class="flex flex-col text-left p-3 pt-20">
-            <h1 class="text-3xl font-semibold"><b>Sign Up to</b><br>
-                Lorem Ipsum is simply
+            <h1 class="text-3xl font-semibold"><b>Sign Up</b><br>
+                Create your free account
             </h1>
             <br>
             <br>
-            <p>If you already have an account <br>
-            You can <a class="text-blue-500 hover:cursor-pointer font-bold" href="login.php">Login here!</a>
+            <p>Already have an account?<br>
+            You can <a class="text-blue-500 hover:cursor-pointer font-bold" href="login.php">Login Here</a>
             </p>
         </div>
         <!-- form div -->
@@ -40,16 +40,6 @@
                     elseif(in_array("Username_Taken", $errorValidate)) echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">Username already in use<br></p>';
                     elseif(in_array("Passwords_Mismatch", $errorValidate))echo '<p class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">The passwords you entered do not match<br></p>';
                 ?>
-                <input
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
-                    type="email" id="email" placeholder="Enter Email" name="email" aria-describedby="emailHelp" 
-                    value="<?php if(isset($_SESSION['email'])){ echo $_SESSION['email'];}?>"required>
-                    
-                <input 
-                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
-                    type="text" id="username" placeholder="Create Username" name="username" 
-                    value="<?php if(isset($_SESSION['username'])){ echo $_SESSION['username'];}?>"required>
-                     
                 <div class="flex flex-row justify-center gap-7">
                     <input 
                         class="w-36 bg-gray-200 p-3 rounded-md placeholder-black focus:outline-blue-500" 
@@ -60,10 +50,18 @@
                         type="text" id="lastname" name="lastname" placeholder="Last Name" 
                         value="<?php if(isset($_SESSION['lastname'])){ echo $_SESSION['lastname'];}?>"required>
                 </div> 
+                <input
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
+                    type="email" id="email" placeholder="Enter Email" name="email" aria-describedby="emailHelp" 
+                    value="<?php if(isset($_SESSION['email'])){ echo $_SESSION['email'];}?>"required>
                 <input 
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="number" id="contact" name="contact" placeholder="Contact number" 
-                    value="<?php if(isset($_SESSION['contact'])){ echo $_SESSION['contact'];}?>"required>   
+                    value="<?php if(isset($_SESSION['contact'])){ echo $_SESSION['contact'];}?>"required>
+                <input 
+                    class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
+                    type="text" id="username" placeholder="Create Username" name="username" 
+                    value="<?php if(isset($_SESSION['username'])){ echo $_SESSION['username'];}?>"required>
                 <input 
                     class="bg-gray-200 p-3 rounded-md placeholder-black w-80 focus:outline-blue-500"
                     type="password" id="pass" name="pass"placeholder="Password" required>
