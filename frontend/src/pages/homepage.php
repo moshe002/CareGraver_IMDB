@@ -89,7 +89,7 @@ $loggedInUser = $_SESSION["loggedInUser"];
                                 <li>
                                     <a href="#"
                                         class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Orders</a>
-                                </li>
+                                </li>r
                                 <li>
                                     <a href="#"
                                         class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Chats</a>
